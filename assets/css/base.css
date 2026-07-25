@@ -129,15 +129,20 @@ p { text-wrap: pretty; }
 /* ------------------------------------------------------------
    Tipografía de marca
    ------------------------------------------------------------ */
+/* La referencia usa una display extendida de trazo muy fino. Se aproxima con
+   peso 200, tracking amplio y un ensanchado horizontal; si algún día compras
+   una extended de verdad (Monument Extended y similares), basta cambiar
+   --font-sans aquí y quitar el scaleX. */
 .wordmark {
   font-family: var(--font-sans);
-  font-weight: 300;
+  font-weight: 200;
   text-transform: uppercase;
-  letter-spacing: .34em;
-  transform: scaleX(1.06);
+  letter-spacing: .38em;
+  transform: scaleX(1.16);
   transform-origin: center;
   display: inline-block;
   line-height: 1;
+  text-indent: .38em;   /* compensa el tracking del último carácter */
 }
 
 .eyebrow {

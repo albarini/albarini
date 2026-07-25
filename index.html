@@ -167,7 +167,10 @@
 
       <div class="hero__content">
         <p class="hero__kicker" data-reveal data-reveal-delay="1">Arquitectura y diseño de interiores</p>
-        <h1 class="hero__title" data-reveal="words" data-reveal-delay="2">
+        <!-- Sin reveal por palabras: sobre un <video> cada palabra se
+             convertiria en una capa de GPU independiente y en movil se
+             pintarian con fondo opaco (cajas negras) ademas de parpadear. -->
+        <h1 class="hero__title" data-reveal data-reveal-delay="2">
           Arquitectura que encuentra la elegancia con intención
         </h1>
         <div data-reveal data-reveal-delay="6">

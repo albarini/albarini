@@ -11,7 +11,11 @@ SC.register('parallax', function (root) {
 
   var U = SC.utils;
   var nodes = U.qsa('[data-parallax]', root);
-  if (!nodes.length || U.reducedMotion()) return;
+
+  /* En táctil se desactiva: desplazar un vídeo a contra-scroll obliga a
+     recomponer la capa en cada frame y es la principal causa de tirones en
+     móvil, a cambio de un efecto que apenas se percibe en pantalla pequeña. */
+  if (!nodes.length || U.reducedMotion() || U.isTouch()) return;
 
   var max = SC.config.parallax.max;
 

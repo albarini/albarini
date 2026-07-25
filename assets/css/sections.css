@@ -9,10 +9,14 @@
 .hero {
   position: relative;
   display: grid;
-  place-items: center;
+  /* Contenido abajo, no centrado: es la composición de la referencia, que deja
+     respirar la imagen y apoya el texto sobre el tercio inferior. */
+  align-items: end;
+  justify-items: center;
   min-height: 100svh;
-  padding: calc(var(--nav-h) + 4rem) var(--gutter) clamp(5rem, 10vh, 8rem);
+  padding: calc(var(--nav-h) + 4rem) var(--gutter) clamp(7rem, 17vh, 11rem);
   overflow: clip;
+  isolation: isolate;
   color: var(--c-inverse);
   background: var(--c-bg-dark);
 }
@@ -31,6 +35,11 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  /* Saca el vídeo del plano de overlay del hardware y lo mete en el árbol de
+     composición normal. Sin esto, en móvil el navegador no sabe mezclar la
+     transparencia de lo que va encima y lo pinta con fondo opaco. */
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .hero__overlay {
@@ -45,8 +54,8 @@
   z-index: 1;
   display: grid;
   justify-items: center;
-  gap: clamp(1.5rem, 3vw, 2.5rem);
-  max-width: 24ch;
+  gap: clamp(1.4rem, 2.6vw, 2.1rem);
+  max-width: 46ch;
   text-align: center;
 }
 
@@ -57,13 +66,16 @@
   color: var(--c-inverse-soft);
 }
 
+/* Escala contenida a propósito: en la referencia el reclamo es discreto y deja
+   que mande la imagen. Un titular grande rompería ese equilibrio. */
 .hero__title {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 300;
-  font-size: clamp(1.75rem, 4.2vw, 3.4rem);
-  line-height: 1.18;
-  letter-spacing: .005em;
+  font-size: clamp(1.35rem, 2.9vw, 2.2rem);
+  line-height: 1.32;
+  letter-spacing: .01em;
+  text-shadow: 0 1px 24px rgba(0, 0, 0, .35);
 }
 
 .hero__scroll {

@@ -22,8 +22,14 @@
   transform: translate3d(0, 0, 0);
 }
 
-/* Una vez visible ya no necesita reservar capa de composición */
-.js [data-reveal].is-done { will-change: auto; }
+/* Terminada la animación se retira el transform además del will-change:
+   un translate3d(0,0,0) sigue creando una capa de GPU aunque no mueva nada,
+   y sobre el vídeo del hero esas capas son las que causan artefactos. */
+.js [data-reveal].is-done {
+  will-change: auto;
+  transform: none;
+  transition: opacity var(--dur-slow) var(--ease-expo);
+}
 
 /* ------------------------------------------------------------
    2 · REVEAL POR PALABRAS (máscara + subida)
@@ -37,12 +43,21 @@
   margin-bottom: -.12em;
 }
 
+/* Sin `will-change`: promocionar cada palabra a su propia capa multiplica el
+   coste de composición y provoca artefactos sobre elementos <video>.
+   El translate3d ya basta para que la transición vaya por GPU. */
 .word {
   display: inline-block;
   transform: translate3d(0, 110%, 0);
   transition: transform 1.05s var(--ease-expo);
   transition-delay: calc((var(--w, 0) * 55ms) + (var(--reveal-delay, 0) * 90ms));
-  will-change: transform;
+}
+
+/* Terminada la animación, la palabra vuelve a ser texto plano: se elimina el
+   transform para que no quede ninguna capa residual. */
+.js [data-reveal="words"].is-done .word {
+  transform: none;
+  transition: none;
 }
 
 .js [data-reveal="words"] { opacity: 1; transform: none; }
