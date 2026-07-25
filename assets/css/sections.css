@@ -71,26 +71,28 @@
 
 /* Reclamo en serif de alto contraste, en caja baja: es el único elemento
    con serif del hero y el que fija el tono del sitio. */
+/* Medido en la referencia: Bodoni 72 a 16 px, peso 400, sin tracking, en una
+   sola línea. Yo lo tenía a 37 px partido en dos: de ahí que se viera enorme
+   al lado del original. Se deja que crezca un poco en pantallas anchas. */
 .hero__kicker {
   font-family: var(--font-serif);
-  font-size: clamp(1.45rem, 5.6vw, 2.35rem);
+  font-size: clamp(.95rem, .93rem + .1vw, 1rem);   /* 15,2 → 16 px */
   font-weight: 400;
-  line-height: 1.24;
-  letter-spacing: .01em;
+  line-height: 1.3;
+  letter-spacing: normal;
   text-transform: none;
   color: var(--c-inverse);
-  max-width: 12em;   /* fuerza el corte en dos líneas, como la referencia */
+  max-width: 40ch;
 }
 
-/* Botón afinado. El padding lateral se contiene para que el rótulo en
-   español, más largo que el inglés del original, quepa en una sola línea. */
+/* Medido: 12 px, peso 400, mayúsculas, 0,6 px de tracking (0,05em). */
 .hero__cta {
-  --btn-pad-x: clamp(1.5rem, 6vw, 3rem);
+  --btn-pad-x: clamp(1.5rem, 4vw, 2.5rem);
   font-family: var(--font-sans);
-  font-size: clamp(.66rem, 2.6vw, .76rem);
+  font-size: var(--fs-xs);
   font-weight: 400;
-  letter-spacing: .18em;
-  padding-block: 1.15rem;
+  letter-spacing: .05em;
+  padding-block: 1.05rem;
   border-color: rgba(255, 255, 255, .65);
 }
 
@@ -174,6 +176,7 @@
   pointer-events: none;
 }
 
+/* Medido: 16 px, peso 400, mayúsculas, 0,8 px de tracking (0,05em). */
 .work__name {
   position: absolute;
   left: 50%;
@@ -225,7 +228,7 @@
 
 .service__title {
   font-size: clamp(1.15rem, 2.6vw, 2.1rem);
-  font-weight: 200;
+  font-weight: 400;
   letter-spacing: var(--track-tight);
   line-height: 1.2;
 }
@@ -291,7 +294,7 @@
 }
 .process__step h3 {
   font-size: var(--fs-lg);
-  font-weight: 200;
+  font-weight: 400;
   letter-spacing: var(--track-tight);
 }
 .process__step p {
@@ -329,13 +332,13 @@
   gap: clamp(2rem, 4vw, 3rem);
   text-align: center;
 }
+/* Medido: Bodoni 72 a 24,5 px, peso 400, sin cursiva. */
 .quote__text {
   font-family: var(--font-serif);
-  font-style: italic;
-  font-size: clamp(1.4rem, 3.6vw, 2.9rem);
-  font-weight: 300;
-  line-height: 1.32;
-  max-width: 22ch;
+  font-size: var(--fs-lg);
+  font-weight: 400;
+  line-height: 1.28;
+  max-width: 34ch;
 }
 .quote__author {
   display: grid;
@@ -360,7 +363,7 @@
 
 .contact__title {
   font-size: var(--fs-xl);
-  font-weight: 200;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: var(--track-tight);
   max-width: 14ch;

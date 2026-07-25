@@ -34,17 +34,16 @@ section[id] { scroll-margin-top: var(--nav-h); }
   max-width: 42ch;
 }
 
-/* Serif de alto contraste en mayúsculas con tracking amplio.
-   NOTA: en studiocouture.co estos titulares son sans-serif; esto es una
-   decisión de marca propia. Para ceñirse a la referencia basta cambiar
-   `var(--font-serif)` por `var(--font-sans)` en la línea siguiente. */
+/* Medido en la referencia: Nats (sans) a 60 px, peso 400, sin tracking.
+   El serif queda reservado al reclamo del hero y a la cita, que es donde
+   el original lo emplea. */
 .section__title {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: var(--fs-xl);
   text-transform: uppercase;
-  letter-spacing: .1em;
-  font-weight: 300;   /* 400 se leía pesado a este tamaño */
-  line-height: 1.22;
+  letter-spacing: normal;   /* la referencia no separa los titulares grandes */
+  font-weight: 400;
+  line-height: 1.1;
 }
 
 /* En móvil la referencia centra los encabezados de sección */

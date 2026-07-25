@@ -106,13 +106,15 @@
 }
 
 /* Enlace con subrayado que se revela desde la izquierda */
+/* Medido: 16 px, peso 400, caja normal y SIN tracking. */
 .nav__link {
   position: relative;
   display: inline-flex;
   align-items: center;
   gap: .4rem;
   font-size: var(--fs-sm);
-  letter-spacing: .04em;
+  font-weight: 400;
+  letter-spacing: normal;
   padding-block: .35rem;
   white-space: nowrap;
 }
@@ -188,8 +190,9 @@
   margin-left: clamp(.5rem, 1.5vw, 1.25rem);
   text-transform: none;
   font-size: var(--fs-sm);
-  letter-spacing: .04em;
-  padding-block: .85rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  padding-block: .8rem;
 }
 
 /* ------------------------------------------------------------
@@ -241,7 +244,7 @@
 .menu__list a {
   display: block;
   font-size: clamp(2rem, 9vw, 3.75rem);
-  font-weight: 200;
+  font-weight: 400;
   letter-spacing: var(--track-tight);
   line-height: 1.25;
   opacity: 0;

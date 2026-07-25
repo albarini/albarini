@@ -20,27 +20,38 @@
   --c-overlay:       rgba(0, 0, 0, .42);
 
   /* ---- Tipografía ------------------------------------------- */
-  --font-sans:    'Montserrat', 'Avenir Next', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-serif:   'Cormorant Garamond', 'Bodoni Moda', 'Georgia', 'Times New Roman', serif;
+  /* Medidas tomadas sobre studiocouture.co con el navegador. Nats es una
+     grotesca muy fina: por eso el original se ve ligero a 17,6 px, mientras
+     que Montserrat a peso 500 se veía pesado al mismo tamaño.
+     Nats solo tiene un peso (400): no declarar 500 ni 600 en ningún sitio,
+     el navegador los simularía engordando el trazo. */
+  --font-sans:    'Nats', 'Avenir Next', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif:   'Bodoni Moda', 'Bodoni 72', 'Didot', 'Georgia', serif;
   --font-display: 'Michroma', 'Eurostile', 'Bank Gothic', var(--font-sans);
 
   /* Escala calibrada contra la referencia en móvil: allí el cuerpo de texto
      ronda los 17 px, no los 15 que daba la escala anterior. */
-  --fs-xs:   clamp(.68rem,  .64rem + .18vw, .78rem);
-  --fs-sm:   clamp(.8rem,   .76rem + .2vw,  .9rem);
-  --fs-base: clamp(.95rem,  .92rem + .2vw,  1.05rem);
-  --fs-md:   clamp(1.1rem,  1.02rem + .4vw, 1.35rem);
-  --fs-lg:   clamp(1.4rem,  1.15rem + 1.2vw, 2.2rem);
-  --fs-xl:   clamp(1.5rem,  1.15rem + 1.8vw, 2.75rem);
-  --fs-2xl:  clamp(2.2rem,  1.5rem + 3.6vw, 5rem);
+  /* Escala calcada de la referencia (viewport de 1900 px):
+     botones 12 · enlaces y nombres de proyecto 16 · texto corrido 17,6
+     · cita 24,5 · titulares de sección 60 */
+  --fs-xs:   clamp(.7rem,   .68rem + .1vw,  .75rem);   /* 11,2 → 12   botones */
+  --fs-sm:   clamp(.9rem,   .87rem + .15vw, 1rem);     /* 14,4 → 16   enlaces */
+  --fs-base: clamp(1rem,    .96rem + .2vw,  1.1rem);   /* 16   → 17,6 cuerpo  */
+  --fs-md:   clamp(1.1rem,  1.04rem + .3vw, 1.25rem);
+  --fs-lg:   clamp(1.35rem, 1.2rem + .7vw,  1.55rem);  /* 21,6 → 24,8 cita    */
+  --fs-xl:   clamp(1.9rem,  1.2rem + 2.9vw, 3.75rem);  /* 30,4 → 60   titular */
+  --fs-2xl:  clamp(2.4rem,  1.5rem + 4.2vw, 5.5rem);
 
-  --track-tight:  -.02em;
-  --track-wide:   .14em;
-  --track-widest: .3em;
+  /* La referencia usa 0,05em en todo lo que va en mayúsculas (0,6 px sobre 12,
+     0,8 px sobre 16) y nada en el texto en caja baja. Yo llegaba a 0,3em, que
+     es lo que hacía ver los rótulos desparramados frente al original. */
+  --track-tight:  -.01em;
+  --track-wide:   .05em;
+  --track-widest: .08em;
 
   --lh-tight: 1.08;
   --lh-snug:  1.25;
-  --lh-body:  1.62;
+  --lh-body:  1.25;   /* medido: 21,12 px sobre 17,6 = 1,2 */
 
   /* ---- Ritmo y layout --------------------------------------- */
   --container: 1480px;
@@ -81,10 +92,11 @@ body {
   color: var(--c-ink);
   font-family: var(--font-sans);
   font-size: var(--fs-base);
-  /* 500 (semi-negrita): el texto corrido de la referencia tiene ese cuerpo,
-     no el peso ligero que teníamos. Los elementos que deben seguir finos
-     —titulares, nombres de servicio, menú— declaran su propio peso. */
-  font-weight: 500;
+  /* 400: es el peso de TODO el texto de la referencia. La sensación de
+     «fino y semi-negrita a la vez» no viene del peso sino de la propia Nats,
+     que es una grotesca de trazo ligero. Subir a 500 obligaba al navegador a
+     engordar el trazo artificialmente. */
+  font-weight: 400;
   line-height: var(--lh-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -115,7 +127,7 @@ a {
 ul, ol { list-style: none; }
 
 h1, h2, h3, h4 {
-  font-weight: 300;
+  font-weight: 400;
   line-height: var(--lh-tight);
   text-wrap: balance;
 }
