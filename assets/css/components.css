@@ -35,7 +35,11 @@
   gap: 1rem;
   min-height: var(--nav-h);
   padding-inline: var(--gutter);
+  transition: min-height var(--dur-fast) var(--ease-out);
 }
+
+/* Al hacer scroll la barra se estrecha, como en la referencia */
+.nav.is-solid .nav__inner { min-height: calc(var(--nav-h) * .82); }
 
 .nav__group {
   display: flex;
@@ -61,12 +65,28 @@
   gap: .3rem;
   padding-block: .5rem;
 }
+/* El kicker («AEDORA») solo existe sobre el hero. En cuanto la barra se
+   vuelve sólida se repliega y queda únicamente el nombre principal, igual
+   que «STUDIO» sobre «COUTURE» en la referencia. */
 .nav__brand-kicker {
+  display: block;
+  overflow: hidden;
+  max-height: 1.4em;
   font-size: .5rem;
   letter-spacing: var(--track-widest);
   text-transform: uppercase;
   color: var(--c-inverse-soft);
+  transition:
+    max-height var(--dur-fast) var(--ease-out),
+    opacity var(--dur-fast) var(--ease-out);
 }
+
+.nav.is-solid .nav__brand-kicker {
+  max-height: 0;
+  opacity: 0;
+}
+/* Sin kicker no debe quedar el hueco de la rejilla */
+.nav.is-solid .nav__brand { gap: 0; }
 .nav__brand .wordmark { font-size: clamp(1rem, 1.5vw, 1.5rem); }
 
 /* Enlace con subrayado que se revela desde la izquierda */

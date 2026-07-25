@@ -28,7 +28,7 @@
      ronda los 17 px, no los 15 que daba la escala anterior. */
   --fs-xs:   clamp(.68rem,  .64rem + .18vw, .78rem);
   --fs-sm:   clamp(.8rem,   .76rem + .2vw,  .9rem);
-  --fs-base: clamp(1.05rem, 1rem   + .25vw, 1.15rem);
+  --fs-base: clamp(.95rem,  .92rem + .2vw,  1.05rem);
   --fs-md:   clamp(1.1rem,  1.02rem + .4vw, 1.35rem);
   --fs-lg:   clamp(1.4rem,  1.15rem + 1.2vw, 2.2rem);
   --fs-xl:   clamp(1.5rem,  1.15rem + 1.8vw, 2.75rem);
@@ -40,7 +40,7 @@
 
   --lh-tight: 1.08;
   --lh-snug:  1.25;
-  --lh-body:  1.72;
+  --lh-body:  1.62;
 
   /* ---- Ritmo y layout --------------------------------------- */
   --container: 1480px;
@@ -81,7 +81,10 @@ body {
   color: var(--c-ink);
   font-family: var(--font-sans);
   font-size: var(--fs-base);
-  font-weight: 300;
+  /* 500 (semi-negrita): el texto corrido de la referencia tiene ese cuerpo,
+     no el peso ligero que teníamos. Los elementos que deben seguir finos
+     —titulares, nombres de servicio, menú— declaran su propio peso. */
+  font-weight: 500;
   line-height: var(--lh-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
