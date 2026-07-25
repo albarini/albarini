@@ -87,7 +87,14 @@
 }
 /* Sin kicker no debe quedar el hueco de la rejilla */
 .nav.is-solid .nav__brand { gap: 0; }
-.nav__brand .wordmark { font-size: clamp(1rem, 1.5vw, 1.5rem); }
+/* Letras pequeñas y MUY separadas, no grandes y juntas: es lo que da al
+   logotipo de la referencia su carácter ancho y ligero dentro de una barra
+   baja. El tracking hace el ancho, no el cuerpo de la letra. */
+.nav__brand .wordmark {
+  font-size: clamp(.72rem, .82vw, .95rem);
+  letter-spacing: .92em;
+  text-indent: .92em;
+}
 
 /* Enlace con subrayado que se revela desde la izquierda */
 .nav__link {
@@ -163,7 +170,18 @@
   padding-left: 1.9rem;
 }
 
-.nav__cta { margin-left: clamp(.5rem, 1.5vw, 1.25rem); }
+/* En caja normal, no en mayúsculas: la referencia rotula «Contacto», igual
+   que el resto de enlaces de la barra. */
+/* .nav__cta.btn (no solo .nav__cta): el elemento lleva ambas clases y la
+   regla .btn se declara más abajo en esta hoja, así que con igual
+   especificidad ganaba por orden y seguía imponiendo las mayúsculas. */
+.nav__cta.btn {
+  margin-left: clamp(.5rem, 1.5vw, 1.25rem);
+  text-transform: none;
+  font-size: var(--fs-sm);
+  letter-spacing: .04em;
+  padding-block: .85rem;
+}
 
 /* ------------------------------------------------------------
    2 · BURGER + MENÚ MÓVIL
