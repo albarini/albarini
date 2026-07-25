@@ -40,17 +40,28 @@ SC.register('mediaFallback', function (root) {
 
   /* ---- Vídeo ----------------------------------------------
      Un <video> con <source> rotos no dispara 'error' de forma
-     fiable en todos los navegadores: se comprueba readyState.  */
+     fiable en todos los navegadores. La señal decisiva es
+     networkState: 3 (NO_SOURCE) significa que ninguna fuente sirve.
+     Un archivo grande puede tardar en dar datos, así que "todavía
+     descargando" (networkState 2) nunca se considera un fallo.     */
   U.qsa('video[data-media-fallback]', root).forEach(function (video) {
     var settled = false;
 
     function ok() { settled = true; }
 
+    video.addEventListener('loadedmetadata', ok, { once: true });
     video.addEventListener('loadeddata', ok, { once: true });
     video.addEventListener('canplay', ok, { once: true });
 
+    /* Ninguna fuente utilizable: fallo inmediato y seguro */
+    video.addEventListener('error', function () {
+      if (video.networkState === 3) replace(video);
+    });
+
     setTimeout(function () {
-      if (settled || video.readyState >= 2) return;
+      if (settled) return;
+      if (video.readyState >= 1) return;              // ya hay metadatos
+      if (video.networkState === 2) return;           // sigue descargando
       replace(video);
     }, VIDEO_TIMEOUT);
   });

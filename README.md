@@ -1,10 +1,23 @@
-# Landing Page Premium · plantilla de marca blanca
+# AEDORA MAISON · landing page
 
-Clon de la estética y la UX de *Studio Couture*, construido como plantilla
-reutilizable. **HTML5 semántico + CSS3 moderno + Vanilla JS**, sin dependencias,
-sin build y sin peticiones a terceros (salvo la hoja de Google Fonts, opcional).
+Landing page de arquitectura y diseño de interiores, construida sobre una
+plantilla modular reutilizable. **HTML5 semántico + CSS3 moderno + Vanilla JS**,
+sin dependencias, sin build y sin peticiones a terceros (salvo la hoja de Google
+Fonts, opcional).
 
-Abre `index.html` en el navegador y funciona. No hace falta servidor.
+Instagram de la marca: [@aedora.home](https://www.instagram.com/aedora.home/)
+
+## Cómo verla
+
+Los vídeos e imágenes no cargan por `file://` en algunos navegadores, así que
+levanta un servidor estático:
+
+```bash
+python -m http.server 5173
+```
+
+Y abre `http://localhost:5173`. La estructura y los estilos sí se ven abriendo
+`index.html` directamente.
 
 ---
 
@@ -204,10 +217,23 @@ punto donde entra un bucle o una variable.
 
 ## 8 · Antes de publicar
 
-- [ ] Sustituir imágenes y vídeo en `assets/img` y `assets/video`
-- [ ] Cambiar nombre de marca, textos y datos de contacto en `index.html`
-- [ ] Ajustar `--c-accent` y las fuentes en `base.css`
-- [ ] Apuntar el `action` del formulario y poner `data-demo="off"`
-- [ ] Actualizar `<title>`, `<meta name="description">`, `og:image` y el JSON-LD
-- [ ] Autoalojar las fuentes en `assets/fonts/` si no quieres depender de Google
+Hecho:
+
+- [x] Marca, `<title>`, metadatos, JSON-LD y enlace a Instagram con AEDORA MAISON
+- [x] Fotos de la marca recortadas y colocadas en cartera, servicios y testimonio
+- [x] Vídeo de portada comprimido a formato web (387 MB → 15,6 MB)
+
+Pendiente:
+
+- [ ] **Datos de contacto reales** — ahora son marcadores (`+1 555 0100`,
+      `hola@tu-dominio.com`, `Calle Ejemplo 00`). Están en tres sitios:
+      el JSON-LD del `<head>`, el menú móvil y la sección de contacto
+- [ ] **Nombres de proyecto reales** — «Villa Duna», «Casa Araucaria», etc. son
+      marcadores, igual que las etiquetas de superficie y tipo de encargo
+- [ ] **Testimonio real** — el de «Marta y Daniel R.» es inventado
+- [ ] Apuntar el `action` del formulario a tu endpoint y poner `data-demo="off"`
+- [ ] Sustituir las fotos por los originales de alta resolución si los tienes
+      (ver `assets/img/README.md`)
+- [ ] Ajustar `--c-accent` y las fuentes en `base.css` si la marca tiene otras
+- [ ] Autoalojar las fuentes en `assets/fonts/` para no depender de Google
 - [ ] Añadir `favicon.ico` y `site.webmanifest`

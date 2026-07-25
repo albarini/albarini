@@ -1,6 +1,11 @@
 # Capturas de referencia (material interno, no forma parte del sitio)
 image*.png
 
+# Vídeo original sin comprimir (387 MB).
+# GitHub rechaza archivos > 100 MB: al repo solo sube la versión web comprimida.
+video pantalla principal.mp4
+_source/
+
 # Vercel
 .vercel/
 

@@ -8,14 +8,16 @@
   <!-- ============================================================
        CMS · META  —  Reemplazable dinámicamente
        ============================================================ -->
-  <title>Atelier Studio — Arquitectura residencial de autor</title>
-  <meta name="description" content="Estudio de arquitectura residencial. Diseño de casas a medida, remodelaciones y supervisión de obra con una estética atemporal.">
+  <title>AEDORA MAISON — Arquitectura y diseño de interiores</title>
+  <meta name="description" content="Estudio de arquitectura y diseño de interiores. Casas a medida, remodelaciones integrales y supervisión de obra con una estética atemporal.">
   <link rel="canonical" href="https://www.tu-dominio.com/">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Atelier Studio — Arquitectura residencial de autor">
+  <meta property="og:site_name" content="AEDORA MAISON">
+  <meta property="og:title" content="AEDORA MAISON — Arquitectura y diseño de interiores">
   <meta property="og:description" content="Arquitectura que encuentra la elegancia con intención.">
   <meta property="og:image" content="./assets/img/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
 
   <!-- Fuentes (degradan a stacks del sistema si no hay red) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,8 +38,9 @@
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "Atelier Studio",
-    "description": "Estudio de arquitectura residencial.",
+    "name": "AEDORA MAISON",
+    "description": "Estudio de arquitectura y diseño de interiores.",
+    "sameAs": ["https://www.instagram.com/aedora.home/"],
     "telephone": "+1 555 0100",
     "email": "hola@tu-dominio.com",
     "address": {
@@ -60,7 +63,7 @@
        ============================================================ -->
   <div class="preloader" id="preloader" aria-hidden="true">
     <div class="preloader__inner">
-      <span class="preloader__mark wordmark">Atelier</span>
+      <span class="preloader__mark wordmark">Aedora</span>
       <span class="preloader__bar"><i></i></span>
     </div>
   </div>
@@ -88,9 +91,10 @@
         </ul>
       </nav>
 
-      <a class="nav__brand" href="#hero" aria-label="Inicio">
-        <small class="nav__brand-kicker">Studio</small>
-        <span class="wordmark">Atelier</span>
+      <!-- CMS: marca -->
+      <a class="nav__brand" href="#hero" aria-label="AEDORA MAISON · Inicio">
+        <small class="nav__brand-kicker">Aedora</small>
+        <span class="wordmark">Maison</span>
       </a>
 
       <nav class="nav__group nav__group--right" aria-label="Navegación secundaria">
@@ -149,17 +153,20 @@
          ========================================================== -->
     <section class="hero" id="hero">
       <div class="hero__media" data-parallax="0.18">
-        <!-- CMS: sustituir por el vídeo del cliente -->
+        <!-- CMS: vídeo de portada.
+             H.264 1920x872, sin audio, con +faststart para que empiece a
+             reproducirse sin descargar el archivo entero. Se sirve un único
+             formato: el WebM/VP9 equivalente solo ahorraba un 9 %, que no
+             justifica mantener un segundo archivo. -->
         <video class="hero__video" autoplay muted loop playsinline preload="metadata"
                poster="./assets/img/hero-poster.jpg" data-media-fallback="Vídeo de portada">
           <source src="./assets/video/hero.mp4" type="video/mp4">
-          <source src="./assets/video/hero.webm" type="video/webm">
         </video>
         <div class="hero__overlay"></div>
       </div>
 
       <div class="hero__content">
-        <p class="hero__kicker" data-reveal data-reveal-delay="1">Arquitectura residencial · San Francisco</p>
+        <p class="hero__kicker" data-reveal data-reveal-delay="1">Arquitectura y diseño de interiores</p>
         <h1 class="hero__title" data-reveal="words" data-reveal-delay="2">
           Arquitectura que encuentra la elegancia con intención
         </h1>
@@ -215,17 +222,18 @@
       <div class="container">
         <div class="work__grid">
 
-          <!-- CMS: bucle de proyectos -->
+          <!-- CMS: bucle de proyectos · los nombres son marcadores,
+               sustituir por los títulos reales de cada obra -->
           <article class="work__item work__item--tall" data-reveal>
             <a class="work__link" href="#contacto" data-cursor-label="Ver">
               <figure class="work__figure">
-                <img src="./assets/img/project-01.jpg" alt="Casa Belvedere, vivienda con vistas a la bahía"
-                     loading="lazy" decoding="async" data-media-fallback="Casa Belvedere">
+                <img src="./assets/img/project-01.jpg" alt="Vista aérea al atardecer de una villa de planta baja con grandes voladizos, patios interiores y piscina, rodeada de campo abierto"
+                     loading="lazy" decoding="async" data-media-fallback="Villa Duna">
               </figure>
               <div class="work__meta">
                 <span class="work__index">01</span>
-                <h3 class="work__name">Casa Belvedere</h3>
-                <span class="work__tag">Obra nueva · 420 m²</span>
+                <h3 class="work__name">Villa Duna</h3>
+                <span class="work__tag">Obra nueva · Vivienda de campo</span>
               </div>
             </a>
           </article>
@@ -233,13 +241,13 @@
           <article class="work__item work__item--offset" data-reveal data-reveal-delay="1">
             <a class="work__link" href="#contacto" data-cursor-label="Ver">
               <figure class="work__figure">
-                <img src="./assets/img/project-02.jpg" alt="Residencia Tiburon, terraza sobre la ladera"
-                     loading="lazy" decoding="async" data-media-fallback="Residencia Tiburon">
+                <img src="./assets/img/project-02.jpg" alt="Vista aérea de una vivienda alargada de hormigón con cubierta plana ajardinada, integrada entre araucarias"
+                     loading="lazy" decoding="async" data-media-fallback="Casa Araucaria">
               </figure>
               <div class="work__meta">
                 <span class="work__index">02</span>
-                <h3 class="work__name">Residencia Tiburon</h3>
-                <span class="work__tag">Remodelación integral</span>
+                <h3 class="work__name">Casa Araucaria</h3>
+                <span class="work__tag">Obra nueva · Ladera boscosa</span>
               </div>
             </a>
           </article>
@@ -247,13 +255,13 @@
           <article class="work__item work__item--wide" data-reveal>
             <a class="work__link" href="#contacto" data-cursor-label="Ver">
               <figure class="work__figure">
-                <img src="./assets/img/project-03.jpg" alt="Pabellón Sausalito, salón abierto al jardín"
-                     loading="lazy" decoding="async" data-media-fallback="Pabellón Sausalito">
+                <img src="./assets/img/project-03.jpg" alt="Salón con revestimiento de listones de madera retroiluminados, sofás claros y ventanal corredero al balcón"
+                     loading="lazy" decoding="async" data-media-fallback="Residencia Nogal">
               </figure>
               <div class="work__meta">
                 <span class="work__index">03</span>
-                <h3 class="work__name">Pabellón Sausalito</h3>
-                <span class="work__tag">Interiorismo y obra</span>
+                <h3 class="work__name">Residencia Nogal</h3>
+                <span class="work__tag">Interiorismo integral</span>
               </div>
             </a>
           </article>
@@ -261,13 +269,13 @@
           <article class="work__item" data-reveal>
             <a class="work__link" href="#contacto" data-cursor-label="Ver">
               <figure class="work__figure">
-                <img src="./assets/img/project-04.jpg" alt="Casa Mill Valley entre árboles"
-                     loading="lazy" decoding="async" data-media-fallback="Casa Mill Valley">
+                <img src="./assets/img/project-04.jpg" alt="Cocina y comedor de hormigón visto con isla alargada, mesa de madera maciza y apertura total al bosque"
+                     loading="lazy" decoding="async" data-media-fallback="Casa Mirador">
               </figure>
               <div class="work__meta">
                 <span class="work__index">04</span>
-                <h3 class="work__name">Casa Mill Valley</h3>
-                <span class="work__tag">Demolición y reconstrucción</span>
+                <h3 class="work__name">Casa Mirador</h3>
+                <span class="work__tag">Arquitectura e interiorismo</span>
               </div>
             </a>
           </article>
@@ -275,13 +283,13 @@
           <article class="work__item work__item--tall work__item--offset" data-reveal data-reveal-delay="1">
             <a class="work__link" href="#contacto" data-cursor-label="Ver">
               <figure class="work__figure">
-                <img src="./assets/img/project-05.jpg" alt="Ático Marina con vistas al puente"
-                     loading="lazy" decoding="async" data-media-fallback="Ático Marina">
+                <img src="./assets/img/project-05.jpg" alt="Acceso porticado de una vivienda de piedra clara con celosías perforadas y escalinata, a contraluz del atardecer"
+                     loading="lazy" decoding="async" data-media-fallback="Villa Oasis">
               </figure>
               <div class="work__meta">
                 <span class="work__index">05</span>
-                <h3 class="work__name">Ático Marina</h3>
-                <span class="work__tag">Reforma · 260 m²</span>
+                <h3 class="work__name">Villa Oasis</h3>
+                <span class="work__tag">Obra nueva · Patios y celosías</span>
               </div>
             </a>
           </article>
@@ -427,16 +435,17 @@
          ========================================================== -->
     <section class="quote section" id="testimonios">
       <div class="quote__bg" data-parallax="0.12">
-        <img src="./assets/img/testimonial-bg.jpg" alt="" loading="lazy" decoding="async" data-media-fallback="Interior del proyecto">
+        <img src="./assets/img/testimonial-bg.jpg" alt="" loading="lazy" decoding="async" data-media-fallback="Proyecto del estudio">
       </div>
       <div class="container quote__inner">
         <blockquote class="quote__text" data-reveal="words">
           Entendieron la casa antes que nosotros. El resultado es exactamente
           la vida que queríamos, construida con una calma admirable.
         </blockquote>
+        <!-- CMS: testimonio real del cliente -->
         <footer class="quote__author" data-reveal data-reveal-delay="4">
           <span>Marta y Daniel R.</span>
-          <span>Casa Belvedere · 2025</span>
+          <span>Casa Araucaria · 2025</span>
         </footer>
       </div>
     </section>
@@ -523,7 +532,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__brand">
-        <span class="wordmark footer__mark" data-reveal>Atelier</span>
+        <span class="wordmark footer__mark" data-reveal>Aedora Maison</span>
         <p class="footer__claim" data-reveal data-reveal-delay="1">Arquitectura que encuentra la elegancia con intención.</p>
       </div>
 
@@ -559,15 +568,16 @@
         </nav>
       </div>
 
+      <!-- CMS: redes sociales -->
       <div class="footer__social">
-        <a href="#" rel="noopener">Instagram</a>
-        <a href="#" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/aedora.home/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="#" rel="noopener">Pinterest</a>
         <a href="#" rel="noopener">LinkedIn</a>
         <a href="#" rel="noopener">Houzz</a>
       </div>
 
       <div class="footer__legal">
-        <span>© <span data-year>2026</span> Atelier Studio</span>
+        <span>© <span data-year>2026</span> AEDORA MAISON</span>
         <a href="#">Política de privacidad</a>
       </div>
     </div>
