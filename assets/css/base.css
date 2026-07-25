@@ -42,7 +42,7 @@
   /* ---- Ritmo y layout --------------------------------------- */
   --container: 1480px;
   --gutter:    clamp(1.25rem, 4vw, 4.5rem);
-  --section-y: clamp(5.5rem, 11vw, 11rem);
+  --section-y: clamp(4rem, 7.5vw, 7.5rem);
   --nav-h:     clamp(60px, 5.2vw, 76px);
 
   /* ---- Movimiento ------------------------------------------- */

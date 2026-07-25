@@ -7,6 +7,10 @@
 /* ------------------------------------------------------------
    1 · REVEAL ON SCROLL (fade-up)
    ------------------------------------------------------------ */
+/* Sin `will-change`: declararlo aquí obliga al navegador a reservar una capa
+   de composición para CADA bloque animable de la página desde el primer
+   momento, esté o no en pantalla. Eran decenas de capas vivas a la vez.
+   El translate3d ya activa la GPU durante la propia transición. */
 .js [data-reveal] {
   opacity: 0;
   transform: translate3d(0, 42px, 0);
@@ -14,7 +18,6 @@
     opacity var(--dur-slow) var(--ease-expo),
     transform var(--dur-slow) var(--ease-expo);
   transition-delay: calc(var(--reveal-delay, 0) * 90ms);
-  will-change: opacity, transform;
 }
 
 .js [data-reveal].is-inview {

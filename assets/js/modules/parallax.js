@@ -58,12 +58,14 @@ SC.register('parallax', function (root) {
     items.forEach(function (it) {
       if (!it.visible) return;
 
-      /* Distancia del centro del elemento al centro del viewport */
+      /* Distancia del centro del elemento al centro del viewport.
+         Mapeo directo, sin suavizado propio: el scroll ya viene interpolado y
+         encadenar un segundo damp hacía que el elemento persiguiera un objetivo
+         en movimiento, oscilando de forma visible. */
       var offset = (y + vh / 2) - it.center;
-      it.target = U.clamp(offset * it.speed, -max, max);
-      it.current = U.damp(it.current, it.target, 9, dt);
+      it.current = U.clamp(offset * it.speed, -max, max);
 
-      it.el.style.transform = 'translate3d(0,' + U.round(it.current, 2) + 'px,0)';
+      it.el.style.transform = 'translate3d(0,' + Math.round(it.current) + 'px,0)';
     });
   }
 

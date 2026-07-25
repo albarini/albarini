@@ -86,7 +86,7 @@
         <ul class="nav__list">
           <li><a class="nav__link" href="#portafolio">Cartera</a></li>
           <li><a class="nav__link" href="#testimonios">Testimonios</a></li>
-          <li><a class="nav__link" href="#filosofia">Historias</a></li>
+          <li><a class="nav__link" href="#portafolio">Historias</a></li>
           <li><a class="nav__link" href="#contacto">Blog</a></li>
         </ul>
       </nav>
@@ -99,7 +99,7 @@
 
       <nav class="nav__group nav__group--right" aria-label="Navegación secundaria">
         <ul class="nav__list">
-          <li><a class="nav__link" href="#filosofia">Acerca de</a></li>
+          <li><a class="nav__link" href="#proceso">Acerca de</a></li>
           <li class="nav__has-sub" data-dropdown>
             <button class="nav__link nav__link--btn" aria-expanded="false" aria-controls="submenu-servicios">
               Servicios <svg class="nav__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1"/></svg>
@@ -132,7 +132,7 @@
     <nav class="menu__nav" aria-label="Menú móvil">
       <ul class="menu__list">
         <li style="--i:0"><a href="#portafolio" data-menu-close>Cartera</a></li>
-        <li style="--i:1"><a href="#filosofia" data-menu-close>Acerca de</a></li>
+        <li style="--i:1"><a href="#proceso" data-menu-close>Acerca de</a></li>
         <li style="--i:2"><a href="#servicios" data-menu-close>Servicios</a></li>
         <li style="--i:3"><a href="#proceso" data-menu-close>Proceso</a></li>
         <li style="--i:4"><a href="#testimonios" data-menu-close>Testimonios</a></li>
@@ -152,7 +152,9 @@
          01 · HERO
          ========================================================== -->
     <section class="hero" id="hero">
-      <div class="hero__media" data-parallax="0.18">
+      <!-- Sin parallax: desplazar el vídeo a contra-scroll obliga a recomponer
+           su capa en cada fotograma y era la causa principal del parpadeo. -->
+      <div class="hero__media">
         <!-- CMS: vídeo de portada.
              H.264 1920x872, sin audio, con +faststart para que empiece a
              reproducirse sin descargar el archivo entero. Se sirve un único
@@ -166,59 +168,32 @@
       </div>
 
       <div class="hero__content">
+        <!-- El H1 se mantiene por SEO y lectores de pantalla, sin ocupar
+             espacio: el hero es deliberadamente mudo. -->
+        <h1 class="visually-hidden">AEDORA MAISON — Arquitectura y diseño de interiores</h1>
+
         <p class="hero__kicker" data-reveal data-reveal-delay="1">Arquitectura y diseño de interiores</p>
-        <!-- Sin reveal por palabras: sobre un <video> cada palabra se
-             convertiria en una capa de GPU independiente y en movil se
-             pintarian con fondo opaco (cajas negras) ademas de parpadear. -->
-        <h1 class="hero__title" data-reveal data-reveal-delay="2">
-          Arquitectura que encuentra la elegancia con intención
-        </h1>
-        <div data-reveal data-reveal-delay="6">
+        <div data-reveal data-reveal-delay="3">
           <a class="btn btn--ghost hero__cta" href="#portafolio" data-magnetic data-cursor-label="Ver">
             Descubre nuestros proyectos
           </a>
         </div>
       </div>
 
-      <a class="hero__scroll" href="#filosofia" aria-label="Desplazarse hacia abajo">
+      <a class="hero__scroll" href="#portafolio" aria-label="Desplazarse hacia abajo">
         <span class="hero__scroll-label">Scroll</span>
         <span class="hero__scroll-line"><i></i></span>
       </a>
     </section>
 
     <!-- ==========================================================
-         02 · FILOSOFÍA · relleno de texto al hacer scroll
-         ========================================================== -->
-    <section class="philosophy section" id="filosofia">
-      <div class="container">
-        <p class="eyebrow" data-reveal>(01) — Filosofía</p>
-        <h2 class="philosophy__statement" data-text-fill>
-          Diseñamos casas residenciales en terrenos complejos, donde la luz, la
-          topografía y la normativa se convierten en materia de proyecto.
-        </h2>
-        <div class="philosophy__grid">
-          <p class="philosophy__body" data-reveal>
-            Cada encargo empieza con una lectura precisa del lugar. Traducimos el
-            terreno, el clima y la forma de habitar de cada cliente en una arquitectura
-            serena, construible y duradera.
-          </p>
-          <ul class="philosophy__facts">
-            <li data-reveal data-reveal-delay="1"><strong data-count="18">0</strong><span>Años de estudio</span></li>
-            <li data-reveal data-reveal-delay="2"><strong data-count="140">0</strong><span>Proyectos entregados</span></li>
-            <li data-reveal data-reveal-delay="3"><strong data-count="96" data-count-suffix="%">0</strong><span>Permisos aprobados</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================
-         03 · PORTAFOLIO · cuadrícula asimétrica
+         02 · PORTAFOLIO · cuadrícula asimétrica
          ========================================================== -->
     <section class="work section" id="portafolio">
       <div class="container">
         <header class="section__head">
-          <p class="eyebrow" data-reveal>(02) — Cartera</p>
-          <h2 class="section__title" data-reveal="words">Proyectos seleccionados</h2>
+          <p class="eyebrow" data-reveal>(01) — Cartera</p>
+          <h2 class="section__title" data-reveal>Proyectos seleccionados</h2>
         </header>
       </div>
 
@@ -311,8 +286,8 @@
     <section class="services section" id="servicios">
       <div class="container">
         <header class="section__head">
-          <p class="eyebrow" data-reveal>(03) — Servicios</p>
-          <h2 class="section__title" data-reveal="words">Cómo trabajamos contigo</h2>
+          <p class="eyebrow" data-reveal>(02) — Servicios</p>
+          <h2 class="section__title" data-reveal>Cómo trabajamos contigo</h2>
         </header>
 
         <div class="services__wrap" data-services>
@@ -404,8 +379,8 @@
     <section class="process section section--dark" id="proceso">
       <div class="container">
         <header class="section__head">
-          <p class="eyebrow" data-reveal>(04) — Proceso</p>
-          <h2 class="section__title" data-reveal="words">Cuatro fases, cero sorpresas</h2>
+          <p class="eyebrow" data-reveal>(03) — Proceso</p>
+          <h2 class="section__title" data-reveal>Cuatro fases, cero sorpresas</h2>
         </header>
 
         <ol class="process__list">
@@ -441,7 +416,7 @@
         <img src="./assets/img/testimonial-bg.jpg" alt="" loading="lazy" decoding="async" data-media-fallback="Proyecto del estudio">
       </div>
       <div class="container quote__inner">
-        <blockquote class="quote__text" data-reveal="words">
+        <blockquote class="quote__text" data-reveal>
           Entendieron la casa antes que nosotros. El resultado es exactamente
           la vida que queríamos, construida con una calma admirable.
         </blockquote>
@@ -460,7 +435,7 @@
       <div class="container contact__grid">
 
         <div class="contact__intro">
-          <h2 class="contact__title" data-reveal="words">Cada hogar empieza con una conversación</h2>
+          <h2 class="contact__title" data-reveal>Cada hogar empieza con una conversación</h2>
           <p class="contact__body" data-reveal data-reveal-delay="4">
             Cuéntanos tu terreno, tus objetivos y tus limitaciones, y te
             recomendaremos el mejor siguiente paso: asesoramiento sobre permisos,
@@ -543,7 +518,7 @@
         <nav class="footer__col" aria-label="Estudio">
           <h4>Estudio</h4>
           <ul>
-            <li><a href="#filosofia">Acerca de</a></li>
+            <li><a href="#proceso">Acerca de</a></li>
             <li><a href="#servicios">Servicios</a></li>
             <li><a href="#proceso">Proceso</a></li>
             <li><a href="#contacto">Contacto</a></li>
@@ -565,7 +540,7 @@
           <ul>
             <li><a href="#portafolio">Cartera</a></li>
             <li><a href="#testimonios">Testimonios</a></li>
-            <li><a href="#filosofia">Historias</a></li>
+            <li><a href="#portafolio">Historias</a></li>
             <li><a href="#contacto">Blog</a></li>
           </ul>
         </nav>
@@ -601,8 +576,6 @@
   <script src="./assets/js/modules/navbar.js" defer></script>
   <script src="./assets/js/modules/menu.js" defer></script>
   <script src="./assets/js/modules/reveal.js" defer></script>
-  <script src="./assets/js/modules/text-fill.js" defer></script>
-  <script src="./assets/js/modules/counter.js" defer></script>
   <script src="./assets/js/modules/parallax.js" defer></script>
   <script src="./assets/js/modules/magnetic.js" defer></script>
   <script src="./assets/js/modules/cursor.js" defer></script>

@@ -21,6 +21,7 @@ SC.register('smoothScroll', function (root) {
   var target = window.scrollY;
   var current = target;
   var lastWheel = 0;
+  var lastPainted = -1;                        // último píxel entero escrito
   var lambda = -Math.log(1 - cfg.lerp) * 60;   // lerp por frame → constante temporal
   var offTicker = null;
 
@@ -62,8 +63,17 @@ SC.register('smoothScroll', function (root) {
     }
 
     current = U.damp(current, target, lambda, dt);
-    window.scrollTo(0, current);
-    SC.scroll.y = current;
+
+    /* Se redondea a píxel entero antes de escribir. Con posiciones
+       fraccionarias el navegador re-rasteriza TODO el texto en cada fotograma
+       con un desfase de subpíxel distinto: eso es lo que se percibe como
+       parpadeo o vibración de las letras al hacer scroll. */
+    var px = Math.round(current);
+    if (px !== lastPainted) {
+      lastPainted = px;
+      window.scrollTo(0, px);
+    }
+    SC.scroll.y = px;
   }
 
   /* ---- API pública ----------------------------------------- */

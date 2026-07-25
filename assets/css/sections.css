@@ -1,6 +1,6 @@
 /* ============================================================
-   SECCIONES · hero, filosofía, cartera, servicios,
-               proceso, testimonio, contacto, footer
+   SECCIONES · hero, cartera, servicios, proceso,
+               testimonio, contacto, footer
    ============================================================ */
 
 /* ------------------------------------------------------------
@@ -21,12 +21,12 @@
   background: var(--c-bg-dark);
 }
 
-/* El contenedor es más alto que el hero para dejar recorrido al parallax */
+/* Sin will-change: el hero ya no lleva parallax, y reservar una capa de GPU
+   permanente para algo que no se mueve solo cuesta memoria y repintados. */
 .hero__media {
   position: absolute;
-  inset: -12% 0;
+  inset: 0;
   z-index: 0;
-  will-change: transform;
 }
 
 .hero__video,
@@ -64,18 +64,6 @@
   text-transform: uppercase;
   letter-spacing: var(--track-widest);
   color: var(--c-inverse-soft);
-}
-
-/* Escala contenida a propósito: en la referencia el reclamo es discreto y deja
-   que mande la imagen. Un titular grande rompería ese equilibrio. */
-.hero__title {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 300;
-  font-size: clamp(1.35rem, 2.9vw, 2.2rem);
-  line-height: 1.32;
-  letter-spacing: .01em;
-  text-shadow: 0 1px 24px rgba(0, 0, 0, .35);
 }
 
 .hero__scroll {
@@ -131,84 +119,34 @@
 }
 
 /* ------------------------------------------------------------
-   02 · FILOSOFÍA
-   ------------------------------------------------------------ */
-.philosophy { background: var(--c-bg-soft); }
-
-.philosophy .eyebrow { margin-bottom: clamp(2rem, 5vw, 3.5rem); }
-
-.philosophy__statement {
-  font-size: var(--fs-2xl);
-  font-weight: 200;
-  line-height: 1.14;
-  letter-spacing: var(--track-tight);
-  text-transform: uppercase;
-  max-width: 20ch;
-  margin-bottom: clamp(3rem, 8vw, 7rem);
-}
-
-.philosophy__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: start;
-}
-
-.philosophy__body {
-  font-size: var(--fs-md);
-  color: var(--c-ink-soft);
-  max-width: 46ch;
-}
-
-.philosophy__facts {
-  display: grid;
-  gap: clamp(1.5rem, 3vw, 2.5rem);
-  border-top: 1px solid var(--c-line);
-  padding-top: clamp(1.5rem, 3vw, 2.5rem);
-}
-.philosophy__facts li {
-  display: flex;
-  align-items: baseline;
-  gap: 1.5rem;
-}
-.philosophy__facts strong {
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  font-weight: 200;
-  line-height: 1;
-  min-width: 3.5ch;
-  letter-spacing: var(--track-tight);
-}
-.philosophy__facts span {
-  font-size: var(--fs-xs);
-  text-transform: uppercase;
-  letter-spacing: var(--track-wide);
-  color: var(--c-ink-soft);
-}
-
-/* ------------------------------------------------------------
-   03 · CARTERA · cuadrícula asimétrica
+   02 · CARTERA · cuadrícula asimétrica
    ------------------------------------------------------------ */
 .work__grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: clamp(1rem, 2.5vw, 2.75rem);
-  row-gap: clamp(2.5rem, 6vw, 6rem);
+  column-gap: clamp(1rem, 2.5vw, 2.5rem);
+  row-gap: clamp(1.75rem, 3.5vw, 3.5rem);
 }
 
-.work__item { grid-column: span 6; }
-.work__item--wide { grid-column: 2 / span 10; }
-.work__item--offset { margin-top: clamp(2rem, 7vw, 8rem); }
+/* Piezas de 5 columnas sobre 12: dejan aire lateral y evitan que cada foto
+   ocupe media pantalla. La asimetría se mantiene alternando la columna. */
+.work__item { grid-column: 1 / span 5; }
+.work__item:nth-of-type(even) { grid-column: 8 / span 5; }
+.work__item--wide { grid-column: 3 / span 8; }
+.work__item--offset { margin-top: clamp(1rem, 2.5vw, 2.5rem); }
 
 .work__link { display: block; }
 
+/* Proporciones contenidas: las verticales eran 3:4 y llenaban el viewport
+   entero de una sola imagen. */
 .work__figure {
   position: relative;
   overflow: hidden;
   background: var(--c-bg-soft);
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 2;
 }
-.work__item--tall .work__figure { aspect-ratio: 3 / 4; }
-.work__item--wide .work__figure { aspect-ratio: 16 / 9; }
+.work__item--tall .work__figure { aspect-ratio: 4 / 5; }
+.work__item--wide .work__figure { aspect-ratio: 2.4 / 1; }
 
 .work__figure img {
   width: 100%;
@@ -216,8 +154,10 @@
   object-fit: cover;
   transform: scale(1.01);
   transition: transform 1.4s var(--ease-expo), filter 1.4s var(--ease-expo);
-  will-change: transform;
 }
+/* El will-change solo mientras se puede producir el zoom, no de forma
+   permanente para las cinco fotos a la vez. */
+.work__link:hover .work__figure img { will-change: transform; }
 .work__link:hover .work__figure img,
 .work__link:focus-visible .work__figure img {
   transform: scale(1.08);
@@ -260,7 +200,7 @@
 }
 
 /* ------------------------------------------------------------
-   04 · SERVICIOS · acordeón + vista previa que sigue al cursor
+   03 · SERVICIOS · acordeón + vista previa que sigue al cursor
    ------------------------------------------------------------ */
 .services__wrap { position: relative; }
 
@@ -348,7 +288,7 @@
 }
 
 /* ------------------------------------------------------------
-   05 · PROCESO
+   04 · PROCESO
    ------------------------------------------------------------ */
 .process__list {
   display: grid;
@@ -379,7 +319,7 @@
 }
 
 /* ------------------------------------------------------------
-   06 · TESTIMONIO
+   05 · TESTIMONIO
    ------------------------------------------------------------ */
 .quote {
   position: relative;
@@ -425,7 +365,7 @@
 }
 
 /* ------------------------------------------------------------
-   07 · CONTACTO
+   06 · CONTACTO
    ------------------------------------------------------------ */
 .contact { background: var(--c-bg-soft); }
 
@@ -478,7 +418,7 @@
 .contact__info a:hover { border-color: currentColor; }
 
 /* ------------------------------------------------------------
-   08 · FOOTER
+   07 · FOOTER
    ------------------------------------------------------------ */
 .footer {
   background: var(--c-bg-dark);
@@ -558,7 +498,7 @@
 }
 
 @media (max-width: 860px) {
-  .philosophy__grid,
+
   .contact__grid { grid-template-columns: minmax(0, 1fr); }
 
   .work__item,
