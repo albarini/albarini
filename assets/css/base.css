@@ -23,13 +23,15 @@
   --font-sans:  'Jost', 'Futura', 'Century Gothic', 'Avenir Next', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-serif: 'Cormorant Garamond', 'Georgia', 'Times New Roman', serif;
 
-  --fs-xs:   clamp(.625rem, .58rem + .18vw, .72rem);
-  --fs-sm:   clamp(.75rem,  .71rem + .2vw,  .85rem);
-  --fs-base: clamp(.95rem,  .9rem  + .25vw, 1.05rem);
-  --fs-md:   clamp(1.05rem, .98rem + .4vw,  1.3rem);
-  --fs-lg:   clamp(1.5rem,  1.2rem + 1.4vw, 2.4rem);
-  --fs-xl:   clamp(2rem,    1.4rem + 3vw,   4rem);
-  --fs-2xl:  clamp(2.6rem,  1.6rem + 4.6vw, 6.5rem);
+  /* Escala calibrada contra la referencia en móvil: allí el cuerpo de texto
+     ronda los 17 px, no los 15 que daba la escala anterior. */
+  --fs-xs:   clamp(.68rem,  .64rem + .18vw, .78rem);
+  --fs-sm:   clamp(.8rem,   .76rem + .2vw,  .9rem);
+  --fs-base: clamp(1.05rem, 1rem   + .25vw, 1.15rem);
+  --fs-md:   clamp(1.1rem,  1.02rem + .4vw, 1.35rem);
+  --fs-lg:   clamp(1.4rem,  1.15rem + 1.2vw, 2.2rem);
+  --fs-xl:   clamp(1.5rem,  1.15rem + 1.8vw, 2.75rem);
+  --fs-2xl:  clamp(2.2rem,  1.5rem + 3.6vw, 5rem);
 
   --track-tight:  -.02em;
   --track-wide:   .14em;

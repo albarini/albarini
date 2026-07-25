@@ -12,26 +12,25 @@ SC.register('navbar', function (root) {
   if (!nav) return;
 
   var SOLID_AT = 60;    // px a partir de los que la barra deja de ser transparente
-  var HIDE_AT = 220;    // px a partir de los que puede ocultarse
   var isSolid = false;
-  var isHidden = false;
 
+  /**
+   * La barra ya NO se oculta al bajar.
+   *
+   * Se decidía con la dirección del scroll leída en cada fotograma, sin ningún
+   * umbral: con el scroll por inercia del móvil esa dirección se invierte
+   * continuamente por oscilaciones de un píxel, así que la barra entraba y
+   * salía sin parar. Era el parpadeo que se veía en el teléfono.
+   *
+   * Además la referencia mantiene la barra siempre visible: transparente sobre
+   * el hero y sólida a partir del primer scroll. Quitarlo corrige el fallo y
+   * acerca el diseño al original.
+   */
   function tick() {
-    var y = SC.scroll.y;
-    var dir = SC.scroll.direction;
-
-    var solid = y > SOLID_AT;
-    if (solid !== isSolid) {
-      isSolid = solid;
-      nav.classList.toggle('is-solid', solid);
-    }
-
-    var hide = dir > 0 && y > HIDE_AT && !document.body.classList.contains('is-locked');
-    if (hide !== isHidden) {
-      isHidden = hide;
-      nav.classList.toggle('is-hidden', hide);
-      if (hide) closeAll();
-    }
+    var solid = SC.scroll.y > SOLID_AT;
+    if (solid === isSolid) return;
+    isSolid = solid;
+    nav.classList.toggle('is-solid', solid);
   }
 
   /* ---- Submenús -------------------------------------------- */
