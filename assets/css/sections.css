@@ -6,15 +6,16 @@
 /* ------------------------------------------------------------
    01 · HERO
    ------------------------------------------------------------ */
+/* El bloque de texto y botón se agrupa en el tercio inferior, dejando la
+   parte alta libre para que respire la imagen: es la composición del sitio
+   de referencia en móvil. */
 .hero {
   position: relative;
   display: grid;
-  /* Contenido abajo, no centrado: es la composición de la referencia, que deja
-     respirar la imagen y apoya el texto sobre el tercio inferior. */
   align-items: end;
   justify-items: center;
   min-height: 100svh;
-  padding: calc(var(--nav-h) + 4rem) var(--gutter) clamp(7rem, 17vh, 11rem);
+  padding: calc(var(--nav-h) + 4rem) var(--gutter) clamp(4.5rem, 13vh, 7.5rem);
   overflow: clip;
   isolation: isolate;
   color: var(--c-inverse);
@@ -54,47 +55,32 @@
   z-index: 1;
   display: grid;
   justify-items: center;
-  gap: clamp(1.4rem, 2.6vw, 2.1rem);
-  max-width: 46ch;
+  gap: clamp(1.75rem, 4.5vh, 2.75rem);
+  max-width: 22ch;
   text-align: center;
 }
 
+/* Reclamo en serif de alto contraste, en caja baja: es el único elemento
+   con serif del hero y el que fija el tono del sitio. */
 .hero__kicker {
-  font-size: var(--fs-xs);
-  text-transform: uppercase;
-  letter-spacing: var(--track-widest);
-  color: var(--c-inverse-soft);
+  font-family: var(--font-serif);
+  font-size: clamp(1.45rem, 5.6vw, 2.35rem);
+  font-weight: 400;
+  line-height: 1.24;
+  letter-spacing: .01em;
+  text-transform: none;
+  color: var(--c-inverse);
 }
 
-.hero__scroll {
-  position: absolute;
-  left: 50%;
-  bottom: clamp(1.5rem, 4vh, 3rem);
-  translate: -50% 0;
-  z-index: 1;
-  display: grid;
-  justify-items: center;
-  gap: .85rem;
-}
-.hero__scroll-label {
-  font-size: .55rem;
-  text-transform: uppercase;
-  letter-spacing: var(--track-widest);
-  color: var(--c-inverse-soft);
-}
-.hero__scroll-line {
-  display: block;
-  width: 1px;
-  height: 56px;
-  background: var(--c-line-inverse);
-  overflow: hidden;
-}
-.hero__scroll-line i {
-  display: block;
-  width: 100%;
-  height: 40%;
-  background: var(--c-inverse);
-  animation: scrollHint 2.2s var(--ease-io) infinite;
+/* Botón afinado: sans limpia, más tracking y más aire lateral */
+.hero__cta {
+  --btn-pad-x: clamp(2rem, 8vw, 3rem);
+  font-family: var(--font-sans);
+  font-size: clamp(.66rem, 2.6vw, .76rem);
+  font-weight: 400;
+  letter-spacing: .2em;
+  padding-block: 1.15rem;
+  border-color: rgba(255, 255, 255, .65);
 }
 
 /* Placeholder cuando no hay vídeo/imagen todavía */
@@ -112,11 +98,13 @@
   text-align: center;
   padding: 1rem;
 }
-.work__figure .media-placeholder,
-.services__preview .media-placeholder {
+.work__figure .media-placeholder {
   background: linear-gradient(135deg, #dcdcdc 0%, #f0f0f0 50%, #c9c9c9 100%);
   color: rgba(10, 10, 10, .45);
 }
+
+/* Aire generoso entre el hero y el primer titular del cuerpo */
+.work { padding-top: clamp(5rem, 14vh, 9rem); }
 
 /* ------------------------------------------------------------
    02 · CARTERA · cuadrícula asimétrica
@@ -198,25 +186,10 @@
 }
 
 /* ------------------------------------------------------------
-   03 · SERVICIOS · acordeón + vista previa que sigue al cursor
+   03 · SERVICIOS · acordeón
    ------------------------------------------------------------ */
 .services__wrap { position: relative; }
 
-.services__preview {
-  position: fixed;
-  top: 0; left: 0;
-  z-index: 5;
-  width: clamp(200px, 20vw, 300px);
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
-  pointer-events: none;
-  opacity: 0;
-  transform: translate3d(-50%, -50%, 0) scale(.9);
-  transition: opacity var(--dur-fast) var(--ease-out);
-  will-change: transform;
-}
-.services__preview.is-visible { opacity: 1; }
-.services__preview img { width: 100%; height: 100%; object-fit: cover; }
 
 .service { border-top: 1px solid var(--c-line); }
 .service:last-child { border-bottom: 1px solid var(--c-line); }

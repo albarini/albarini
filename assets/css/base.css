@@ -20,8 +20,9 @@
   --c-overlay:       rgba(0, 0, 0, .42);
 
   /* ---- Tipografía ------------------------------------------- */
-  --font-sans:  'Jost', 'Futura', 'Century Gothic', 'Avenir Next', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-serif: 'Cormorant Garamond', 'Georgia', 'Times New Roman', serif;
+  --font-sans:    'Montserrat', 'Avenir Next', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif:   'Cormorant Garamond', 'Bodoni Moda', 'Georgia', 'Times New Roman', serif;
+  --font-display: 'Michroma', 'Eurostile', 'Bank Gothic', var(--font-sans);
 
   /* Escala calibrada contra la referencia en móvil: allí el cuerpo de texto
      ronda los 17 px, no los 15 que daba la escala anterior. */
@@ -131,20 +132,17 @@ p { text-wrap: pretty; }
 /* ------------------------------------------------------------
    Tipografía de marca
    ------------------------------------------------------------ */
-/* La referencia usa una display extendida de trazo muy fino. Se aproxima con
-   peso 200, tracking amplio y un ensanchado horizontal; si algún día compras
-   una extended de verdad (Monument Extended y similares), basta cambiar
-   --font-sans aquí y quitar el scaleX. */
+/* Michroma es una display geométrica ancha y de aspecto técnico: replica el
+   contraste de anchura entre el kicker pequeño y el nombre grande. Al ser ya
+   ancha de origen, no necesita el ensanchado artificial que usábamos antes. */
 .wordmark {
-  font-family: var(--font-sans);
-  font-weight: 200;
+  font-family: var(--font-display);
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: .38em;
-  transform: scaleX(1.16);
-  transform-origin: center;
+  letter-spacing: .2em;
   display: inline-block;
   line-height: 1;
-  text-indent: .38em;   /* compensa el tracking del último carácter */
+  text-indent: .2em;   /* compensa el tracking del último carácter */
 }
 
 .eyebrow {

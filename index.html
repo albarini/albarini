@@ -22,7 +22,10 @@
   <!-- Fuentes (degradan a stacks del sistema si no hay red) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&display=swap" rel="stylesheet">
+  <!-- Montserrat  → interfaz, navegación y botones
+       Cormorant Garamond → titulares de alto contraste
+       Michroma     → exclusivamente el wordmark de la marca -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Michroma&display=swap" rel="stylesheet">
 
   <!-- Hoja de estilos · orden en cascada intencional -->
   <link rel="stylesheet" href="./assets/css/base.css">
@@ -66,14 +69,6 @@
       <span class="preloader__mark wordmark">Aedora</span>
       <span class="preloader__bar"><i></i></span>
     </div>
-  </div>
-
-  <!-- ============================================================
-       CURSOR PERSONALIZADO (solo punteros finos)
-       ============================================================ -->
-  <div class="cursor" id="cursor" aria-hidden="true">
-    <span class="cursor__dot"></span>
-    <span class="cursor__ring"><em class="cursor__label"></em></span>
   </div>
 
   <!-- ============================================================
@@ -174,16 +169,11 @@
 
         <p class="hero__kicker" data-reveal data-reveal-delay="1">Arquitectura y diseño de interiores</p>
         <div data-reveal data-reveal-delay="3">
-          <a class="btn btn--ghost hero__cta" href="#portafolio" data-magnetic data-cursor-label="Ver">
+          <a class="btn btn--ghost hero__cta" href="#portafolio" data-magnetic>
             Descubre nuestros proyectos
           </a>
         </div>
       </div>
-
-      <a class="hero__scroll" href="#portafolio" aria-label="Desplazarse hacia abajo">
-        <span class="hero__scroll-label">Scroll</span>
-        <span class="hero__scroll-line"><i></i></span>
-      </a>
     </section>
 
     <!-- ==========================================================
@@ -203,7 +193,7 @@
           <!-- CMS: bucle de proyectos · los nombres son marcadores,
                sustituir por los títulos reales de cada obra -->
           <article class="work__item work__item--tall" data-reveal>
-            <a class="work__link" href="#contacto" data-cursor-label="Ver">
+            <a class="work__link" href="#contacto">
               <figure class="work__figure">
                 <img src="./assets/img/project-01.jpg" alt="Vista aérea al atardecer de una villa de planta baja con grandes voladizos, patios interiores y piscina, rodeada de campo abierto"
                      loading="lazy" decoding="async" data-media-fallback="Villa Duna">
@@ -213,7 +203,7 @@
           </article>
 
           <article class="work__item work__item--offset" data-reveal data-reveal-delay="1">
-            <a class="work__link" href="#contacto" data-cursor-label="Ver">
+            <a class="work__link" href="#contacto">
               <figure class="work__figure">
                 <img src="./assets/img/project-02.jpg" alt="Vista aérea de una vivienda alargada de hormigón con cubierta plana ajardinada, integrada entre araucarias"
                      loading="lazy" decoding="async" data-media-fallback="Casa Araucaria">
@@ -223,7 +213,7 @@
           </article>
 
           <article class="work__item work__item--wide" data-reveal>
-            <a class="work__link" href="#contacto" data-cursor-label="Ver">
+            <a class="work__link" href="#contacto">
               <figure class="work__figure">
                 <img src="./assets/img/project-03.jpg" alt="Salón con revestimiento de listones de madera retroiluminados, sofás claros y ventanal corredero al balcón"
                      loading="lazy" decoding="async" data-media-fallback="Residencia Nogal">
@@ -233,7 +223,7 @@
           </article>
 
           <article class="work__item" data-reveal>
-            <a class="work__link" href="#contacto" data-cursor-label="Ver">
+            <a class="work__link" href="#contacto">
               <figure class="work__figure">
                 <img src="./assets/img/project-04.jpg" alt="Cocina y comedor de hormigón visto con isla alargada, mesa de madera maciza y apertura total al bosque"
                      loading="lazy" decoding="async" data-media-fallback="Casa Mirador">
@@ -243,7 +233,7 @@
           </article>
 
           <article class="work__item work__item--tall work__item--offset" data-reveal data-reveal-delay="1">
-            <a class="work__link" href="#contacto" data-cursor-label="Ver">
+            <a class="work__link" href="#contacto">
               <figure class="work__figure">
                 <img src="./assets/img/project-05.jpg" alt="Acceso porticado de una vivienda de piedra clara con celosías perforadas y escalinata, a contraluz del atardecer"
                      loading="lazy" decoding="async" data-media-fallback="Villa Oasis">
@@ -271,13 +261,9 @@
         </header>
 
         <div class="services__wrap" data-services>
-          <div class="services__preview" data-services-preview aria-hidden="true">
-            <img alt="" data-services-preview-img>
-          </div>
-
           <ul class="services__list">
             <!-- CMS: bucle de servicios -->
-            <li class="service" data-service data-service-img="./assets/img/service-01.jpg" data-reveal>
+            <li class="service" data-service data-reveal>
               <button class="service__head" aria-expanded="false">
                 <span class="service__num">01</span>
                 <span class="service__title">Diseño de casas a medida</span>
@@ -289,7 +275,7 @@
               </div>
             </li>
 
-            <li class="service" data-service data-service-img="./assets/img/service-02.jpg" data-reveal>
+            <li class="service" data-service data-reveal>
               <button class="service__head" aria-expanded="false">
                 <span class="service__num">02</span>
                 <span class="service__title">Remodelaciones y reinvenciones</span>
@@ -301,7 +287,7 @@
               </div>
             </li>
 
-            <li class="service" data-service data-service-img="./assets/img/service-03.jpg" data-reveal>
+            <li class="service" data-service data-reveal>
               <button class="service__head" aria-expanded="false">
                 <span class="service__num">03</span>
                 <span class="service__title">Permisos y revisión normativa</span>
@@ -313,7 +299,7 @@
               </div>
             </li>
 
-            <li class="service" data-service data-service-img="./assets/img/service-04.jpg" data-reveal>
+            <li class="service" data-service data-reveal>
               <button class="service__head" aria-expanded="false">
                 <span class="service__num">04</span>
                 <span class="service__title">Demolición y reconstrucción</span>
@@ -325,7 +311,7 @@
               </div>
             </li>
 
-            <li class="service" data-service data-service-img="./assets/img/service-05.jpg" data-reveal>
+            <li class="service" data-service data-reveal>
               <button class="service__head" aria-expanded="false">
                 <span class="service__num">05</span>
                 <span class="service__title">Arquitectura e interiorismo</span>
@@ -337,7 +323,7 @@
               </div>
             </li>
 
-            <li class="service" data-service data-service-img="./assets/img/service-06.jpg" data-reveal>
+            <li class="service" data-service data-reveal>
               <button class="service__head" aria-expanded="false">
                 <span class="service__num">06</span>
                 <span class="service__title">Supervisión de la construcción</span>
@@ -558,7 +544,6 @@
   <script src="./assets/js/modules/reveal.js" defer></script>
   <script src="./assets/js/modules/parallax.js" defer></script>
   <script src="./assets/js/modules/magnetic.js" defer></script>
-  <script src="./assets/js/modules/cursor.js" defer></script>
   <script src="./assets/js/modules/services.js" defer></script>
   <script src="./assets/js/modules/lead-form.js" defer></script>
 

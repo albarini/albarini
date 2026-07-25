@@ -1,16 +1,17 @@
 /* ============================================================
-   ANIMACIONES · estados de entrada, scroll y keyframes
+   ANIMACIONES · estados de entrada y preferencias de movimiento
    Todos los estados iniciales se aplican SOLO con .js activo,
    de modo que sin JavaScript la página se ve completa.
    ============================================================ */
 
 /* ------------------------------------------------------------
    1 · REVEAL ON SCROLL (fade-up)
+
+   Sin `will-change`: declararlo aquí obliga al navegador a reservar
+   una capa de composición para CADA bloque animable de la página
+   desde el primer momento, esté o no en pantalla. El translate3d
+   ya activa la GPU durante la propia transición.
    ------------------------------------------------------------ */
-/* Sin `will-change`: declararlo aquí obliga al navegador a reservar una capa
-   de composición para CADA bloque animable de la página desde el primer
-   momento, esté o no en pantalla. Eran decenas de capas vivas a la vez.
-   El translate3d ya activa la GPU durante la propia transición. */
 .js [data-reveal] {
   opacity: 0;
   transform: translate3d(0, 42px, 0);
@@ -25,9 +26,9 @@
   transform: translate3d(0, 0, 0);
 }
 
-/* Terminada la animación se retira el transform además del will-change:
-   un translate3d(0,0,0) sigue creando una capa de GPU aunque no mueva nada,
-   y sobre el vídeo del hero esas capas son las que causan artefactos. */
+/* Terminada la animación se retira el transform: un translate3d(0,0,0)
+   sigue creando capa de GPU aunque no mueva nada, y sobre el vídeo del
+   hero esas capas son las que provocaban artefactos. */
 .js [data-reveal].is-done {
   will-change: auto;
   transform: none;
@@ -35,70 +36,7 @@
 }
 
 /* ------------------------------------------------------------
-   2 · REVEAL POR PALABRAS (máscara + subida)
-   Generado por reveal.js sobre [data-reveal="words"]
-   ------------------------------------------------------------ */
-.word-mask {
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: bottom;
-  padding-bottom: .12em;   /* evita recortar descendentes */
-  margin-bottom: -.12em;
-}
-
-/* Sin `will-change`: promocionar cada palabra a su propia capa multiplica el
-   coste de composición y provoca artefactos sobre elementos <video>.
-   El translate3d ya basta para que la transición vaya por GPU. */
-.word {
-  display: inline-block;
-  transform: translate3d(0, 110%, 0);
-  transition: transform 1.05s var(--ease-expo);
-  transition-delay: calc((var(--w, 0) * 55ms) + (var(--reveal-delay, 0) * 90ms));
-}
-
-/* Terminada la animación, la palabra vuelve a ser texto plano: se elimina el
-   transform para que no quede ninguna capa residual. */
-.js [data-reveal="words"].is-done .word {
-  transform: none;
-  transition: none;
-}
-
-.js [data-reveal="words"] { opacity: 1; transform: none; }
-.js [data-reveal="words"].is-inview .word { transform: translate3d(0, 0, 0); }
-
-/* ------------------------------------------------------------
-   3 · RELLENO DE TEXTO AL HACER SCROLL
-   Cada palabra pasa de gris a tinta según el progreso del bloque
-   ------------------------------------------------------------ */
-.js [data-text-fill] .fill-word {
-  display: inline-block;
-  opacity: calc(.16 + (var(--p, 0) * .84));
-  transition: opacity .18s linear;
-}
-
-/* ------------------------------------------------------------
-   4 · KEYFRAMES
-   ------------------------------------------------------------ */
-@keyframes scrollHint {
-  0%   { transform: translateY(-100%); }
-  50%  { transform: translateY(0); }
-  100% { transform: translateY(250%); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/* ------------------------------------------------------------
-   5 · SMOOTH SCROLL controlado por JS
-   Cuando el módulo toma el control, desactivamos el nativo para
-   que no compitan las dos interpolaciones.
-   ------------------------------------------------------------ */
-html.has-smooth-scroll { scroll-behavior: auto; }
-
-/* ------------------------------------------------------------
-   6 · PREFERENCIA DE MOVIMIENTO REDUCIDO
+   2 · PREFERENCIA DE MOVIMIENTO REDUCIDO
    Se desactiva todo lo decorativo, se conserva la legibilidad.
    ------------------------------------------------------------ */
 @media (prefers-reduced-motion: reduce) {
@@ -113,20 +51,8 @@ html.has-smooth-scroll { scroll-behavior: auto; }
     scroll-behavior: auto !important;
   }
 
-  .js [data-reveal],
-  .js [data-reveal="words"] .word {
+  .js [data-reveal] {
     opacity: 1 !important;
     transform: none !important;
   }
-
-  .js [data-text-fill] .fill-word { opacity: 1 !important; }
-
-  .cursor { display: none; }
-  .hero__scroll-line i { animation: none; }
-}
-
-/* Punteros gruesos (táctil): sin cursor personalizado ni preview */
-@media (hover: none), (pointer: coarse) {
-  .cursor { display: none; }
-  .services__preview { display: none; }
 }

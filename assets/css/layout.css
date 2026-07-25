@@ -34,13 +34,17 @@ section[id] { scroll-margin-top: var(--nav-h); }
   max-width: 42ch;
 }
 
-/* Mayúsculas con espaciado, como todos los titulares de la referencia */
+/* Serif de alto contraste en mayúsculas con tracking amplio.
+   NOTA: en studiocouture.co estos titulares son sans-serif; esto es una
+   decisión de marca propia. Para ceñirse a la referencia basta cambiar
+   `var(--font-serif)` por `var(--font-sans)` en la línea siguiente. */
 .section__title {
+  font-family: var(--font-serif);
   font-size: var(--fs-xl);
   text-transform: uppercase;
-  letter-spacing: .045em;
-  font-weight: 300;
-  line-height: 1.25;
+  letter-spacing: .1em;
+  font-weight: 400;
+  line-height: 1.22;
 }
 
 /* Rejilla editorial de 12 columnas, disponible para cualquier sección */
