@@ -43,8 +43,17 @@ section[id] { scroll-margin-top: var(--nav-h); }
   font-size: var(--fs-xl);
   text-transform: uppercase;
   letter-spacing: .1em;
-  font-weight: 400;
+  font-weight: 300;   /* 400 se leía pesado a este tamaño */
   line-height: 1.22;
+}
+
+/* En móvil la referencia centra los encabezados de sección */
+@media (max-width: 860px) {
+  .section__head {
+    justify-items: center;
+    text-align: center;
+    margin-inline: auto;
+  }
 }
 
 /* Rejilla editorial de 12 columnas, disponible para cualquier sección */

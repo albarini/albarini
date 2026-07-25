@@ -12,8 +12,12 @@
 .hero {
   position: relative;
   display: grid;
+  /* Columna explícita a ancho completo. Con `justify-items: center` y columna
+     automática, la pista se dimensiona al contenido y cualquier `width: 100%`
+     del hijo se resuelve contra ESE ancho, no contra el disponible: el botón
+     se salía por la derecha y el bloque quedaba descentrado. */
+  grid-template-columns: minmax(0, 1fr);
   align-items: end;
-  justify-items: center;
   min-height: 100svh;
   padding: calc(var(--nav-h) + 4rem) var(--gutter) clamp(4.5rem, 13vh, 7.5rem);
   overflow: clip;
@@ -50,13 +54,18 @@
     linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.18) 34%, rgba(0,0,0,.62) 100%);
 }
 
+/* El ancho del contenedor lo marca el BOTÓN, que es el elemento más largo.
+   El reclamo lleva su propia restricción para seguir rompiendo en dos líneas:
+   si se limita aquí, el botón desborda la pantalla. */
 .hero__content {
   position: relative;
   z-index: 1;
   display: grid;
   justify-items: center;
   gap: clamp(1.75rem, 4.5vh, 2.75rem);
-  max-width: 22ch;
+  width: 100%;
+  max-width: 34rem;
+  margin-inline: auto;
   text-align: center;
 }
 
@@ -70,15 +79,17 @@
   letter-spacing: .01em;
   text-transform: none;
   color: var(--c-inverse);
+  max-width: 12em;   /* fuerza el corte en dos líneas, como la referencia */
 }
 
-/* Botón afinado: sans limpia, más tracking y más aire lateral */
+/* Botón afinado. El padding lateral se contiene para que el rótulo en
+   español, más largo que el inglés del original, quepa en una sola línea. */
 .hero__cta {
-  --btn-pad-x: clamp(2rem, 8vw, 3rem);
+  --btn-pad-x: clamp(1.5rem, 6vw, 3rem);
   font-family: var(--font-sans);
   font-size: clamp(.66rem, 2.6vw, .76rem);
   font-weight: 400;
-  letter-spacing: .2em;
+  letter-spacing: .18em;
   padding-block: 1.15rem;
   border-color: rgba(255, 255, 255, .65);
 }
@@ -482,9 +493,10 @@
   .work__item--wide .work__figure,
   .work__figure { aspect-ratio: 3 / 2; }
 
-  .hero__content { max-width: 20ch; }
+  /* Nada de max-width en .hero__content aquí: el ancho lo marca el botón,
+     que es el elemento más largo. La restricción de línea vive en
+     .hero__kicker, no en el contenedor. */
   .contact__body { text-align: left; }
-  .services__preview { display: none; }
 }
 
 @media (max-width: 560px) {
