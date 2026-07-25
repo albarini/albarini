@@ -1,0 +1,114 @@
+/* ============================================================
+   ANIMACIONES · estados de entrada, scroll y keyframes
+   Todos los estados iniciales se aplican SOLO con .js activo,
+   de modo que sin JavaScript la página se ve completa.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1 · REVEAL ON SCROLL (fade-up)
+   ------------------------------------------------------------ */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 42px, 0);
+  transition:
+    opacity var(--dur-slow) var(--ease-expo),
+    transform var(--dur-slow) var(--ease-expo);
+  transition-delay: calc(var(--reveal-delay, 0) * 90ms);
+  will-change: opacity, transform;
+}
+
+.js [data-reveal].is-inview {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Una vez visible ya no necesita reservar capa de composición */
+.js [data-reveal].is-done { will-change: auto; }
+
+/* ------------------------------------------------------------
+   2 · REVEAL POR PALABRAS (máscara + subida)
+   Generado por reveal.js sobre [data-reveal="words"]
+   ------------------------------------------------------------ */
+.word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: .12em;   /* evita recortar descendentes */
+  margin-bottom: -.12em;
+}
+
+.word {
+  display: inline-block;
+  transform: translate3d(0, 110%, 0);
+  transition: transform 1.05s var(--ease-expo);
+  transition-delay: calc((var(--w, 0) * 55ms) + (var(--reveal-delay, 0) * 90ms));
+  will-change: transform;
+}
+
+.js [data-reveal="words"] { opacity: 1; transform: none; }
+.js [data-reveal="words"].is-inview .word { transform: translate3d(0, 0, 0); }
+
+/* ------------------------------------------------------------
+   3 · RELLENO DE TEXTO AL HACER SCROLL
+   Cada palabra pasa de gris a tinta según el progreso del bloque
+   ------------------------------------------------------------ */
+.js [data-text-fill] .fill-word {
+  display: inline-block;
+  opacity: calc(.16 + (var(--p, 0) * .84));
+  transition: opacity .18s linear;
+}
+
+/* ------------------------------------------------------------
+   4 · KEYFRAMES
+   ------------------------------------------------------------ */
+@keyframes scrollHint {
+  0%   { transform: translateY(-100%); }
+  50%  { transform: translateY(0); }
+  100% { transform: translateY(250%); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ------------------------------------------------------------
+   5 · SMOOTH SCROLL controlado por JS
+   Cuando el módulo toma el control, desactivamos el nativo para
+   que no compitan las dos interpolaciones.
+   ------------------------------------------------------------ */
+html.has-smooth-scroll { scroll-behavior: auto; }
+
+/* ------------------------------------------------------------
+   6 · PREFERENCIA DE MOVIMIENTO REDUCIDO
+   Se desactiva todo lo decorativo, se conserva la legibilidad.
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .js [data-reveal],
+  .js [data-reveal="words"] .word {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .js [data-text-fill] .fill-word { opacity: 1 !important; }
+
+  .cursor { display: none; }
+  .hero__scroll-line i { animation: none; }
+}
+
+/* Punteros gruesos (táctil): sin cursor personalizado ni preview */
+@media (hover: none), (pointer: coarse) {
+  .cursor { display: none; }
+  .services__preview { display: none; }
+}

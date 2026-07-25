@@ -1,0 +1,17 @@
+# Capturas de la web de referencia (studiocouture.co).
+# Material de trabajo interno: NO debe servirse desde tu dominio.
+image*.png
+*.psd
+*.sketch
+*.fig
+
+# Documentación interna
+README.md
+assets/img/README.md
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

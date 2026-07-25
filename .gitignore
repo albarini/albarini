@@ -1,0 +1,15 @@
+# Capturas de referencia (material interno, no forma parte del sitio)
+image*.png
+
+# Vercel
+.vercel/
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp

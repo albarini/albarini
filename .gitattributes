@@ -1,0 +1,14 @@
+# Normaliza los saltos de línea: LF en el repositorio y en el working tree.
+# Evita diffs ruidosos al trabajar entre Windows, macOS y el build de Vercel.
+* text=auto eol=lf
+
+# Binarios: nunca tocar
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.webp binary
+*.ico   binary
+*.mp4  binary
+*.webm binary
+*.woff  binary
+*.woff2 binary

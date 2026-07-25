@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+
+  <!-- ============================================================
+       CMS · META  —  Reemplazable dinámicamente
+       ============================================================ -->
+  <title>Atelier Studio — Arquitectura residencial de autor</title>
+  <meta name="description" content="Estudio de arquitectura residencial. Diseño de casas a medida, remodelaciones y supervisión de obra con una estética atemporal.">
+  <link rel="canonical" href="https://www.tu-dominio.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Atelier Studio — Arquitectura residencial de autor">
+  <meta property="og:description" content="Arquitectura que encuentra la elegancia con intención.">
+  <meta property="og:image" content="./assets/img/og-cover.jpg">
+
+  <!-- Fuentes (degradan a stacks del sistema si no hay red) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&display=swap" rel="stylesheet">
+
+  <!-- Hoja de estilos · orden en cascada intencional -->
+  <link rel="stylesheet" href="./assets/css/base.css">
+  <link rel="stylesheet" href="./assets/css/layout.css">
+  <link rel="stylesheet" href="./assets/css/components.css">
+  <link rel="stylesheet" href="./assets/css/sections.css">
+  <link rel="stylesheet" href="./assets/css/animations.css">
+
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+
+  <!-- SEO estructurado · CMS -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Atelier Studio",
+    "description": "Estudio de arquitectura residencial.",
+    "telephone": "+1 415 482 0224",
+    "email": "hola@atelierstudio.co",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle Caledonia 30",
+      "addressLocality": "Sausalito",
+      "addressRegion": "CA",
+      "addressCountry": "US"
+    }
+  }
+  </script>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- ============================================================
+       PRELOADER
+       ============================================================ -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <span class="preloader__mark wordmark">Atelier</span>
+      <span class="preloader__bar"><i></i></span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       CURSOR PERSONALIZADO (solo punteros finos)
+       ============================================================ -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <span class="cursor__dot"></span>
+    <span class="cursor__ring"><em class="cursor__label"></em></span>
+  </div>
+
+  <!-- ============================================================
+       NAVBAR
+       ============================================================ -->
+  <header class="nav" id="nav" data-nav>
+    <div class="nav__inner">
+
+      <nav class="nav__group nav__group--left" aria-label="Navegación principal">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#portafolio">Cartera</a></li>
+          <li><a class="nav__link" href="#testimonios">Testimonios</a></li>
+          <li><a class="nav__link" href="#filosofia">Historias</a></li>
+          <li><a class="nav__link" href="#contacto">Blog</a></li>
+        </ul>
+      </nav>
+
+      <a class="nav__brand" href="#hero" aria-label="Inicio">
+        <small class="nav__brand-kicker">Studio</small>
+        <span class="wordmark">Atelier</span>
+      </a>
+
+      <nav class="nav__group nav__group--right" aria-label="Navegación secundaria">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#filosofia">Acerca de</a></li>
+          <li class="nav__has-sub" data-dropdown>
+            <button class="nav__link nav__link--btn" aria-expanded="false" aria-controls="submenu-servicios">
+              Servicios <svg class="nav__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+            </button>
+            <ul class="nav__sub" id="submenu-servicios">
+              <li><a href="#servicios">Diseño de casas a medida</a></li>
+              <li><a href="#servicios">Remodelaciones integrales</a></li>
+              <li><a href="#servicios">Permisos y normativa</a></li>
+              <li><a href="#servicios">Demolición y reconstrucción</a></li>
+              <li><a href="#servicios">Interiorismo</a></li>
+              <li><a href="#servicios">Supervisión de obra</a></li>
+            </ul>
+          </li>
+          <li><a class="nav__link" href="#proceso">Proceso</a></li>
+        </ul>
+        <a class="btn btn--outline nav__cta" href="#contacto" data-magnetic>Contacto</a>
+      </nav>
+
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- ============================================================
+       MENÚ MÓVIL
+       ============================================================ -->
+  <div class="menu" id="menu" hidden>
+    <nav class="menu__nav" aria-label="Menú móvil">
+      <ul class="menu__list">
+        <li style="--i:0"><a href="#portafolio" data-menu-close>Cartera</a></li>
+        <li style="--i:1"><a href="#filosofia" data-menu-close>Acerca de</a></li>
+        <li style="--i:2"><a href="#servicios" data-menu-close>Servicios</a></li>
+        <li style="--i:3"><a href="#proceso" data-menu-close>Proceso</a></li>
+        <li style="--i:4"><a href="#testimonios" data-menu-close>Testimonios</a></li>
+        <li style="--i:5"><a href="#contacto" data-menu-close>Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="menu__foot">
+      <a href="tel:+14154820224">+1 415 482 0224</a>
+      <a href="mailto:hola@atelierstudio.co">hola@atelierstudio.co</a>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ==========================================================
+         01 · HERO
+         ========================================================== -->
+    <section class="hero" id="hero">
+      <div class="hero__media" data-parallax="0.18">
+        <!-- CMS: sustituir por el vídeo del cliente -->
+        <video class="hero__video" autoplay muted loop playsinline preload="metadata"
+               poster="./assets/img/hero-poster.jpg" data-media-fallback="Vídeo de portada">
+          <source src="./assets/video/hero.mp4" type="video/mp4">
+          <source src="./assets/video/hero.webm" type="video/webm">
+        </video>
+        <div class="hero__overlay"></div>
+      </div>
+
+      <div class="hero__content">
+        <p class="hero__kicker" data-reveal data-reveal-delay="1">Arquitectura residencial · San Francisco</p>
+        <h1 class="hero__title" data-reveal="words" data-reveal-delay="2">
+          Arquitectura que encuentra la elegancia con intención
+        </h1>
+        <div data-reveal data-reveal-delay="6">
+          <a class="btn btn--ghost hero__cta" href="#portafolio" data-magnetic data-cursor-label="Ver">
+            Descubre nuestros proyectos
+          </a>
+        </div>
+      </div>
+
+      <a class="hero__scroll" href="#filosofia" aria-label="Desplazarse hacia abajo">
+        <span class="hero__scroll-label">Scroll</span>
+        <span class="hero__scroll-line"><i></i></span>
+      </a>
+    </section>
+
+    <!-- ==========================================================
+         02 · FILOSOFÍA · relleno de texto al hacer scroll
+         ========================================================== -->
+    <section class="philosophy section" id="filosofia">
+      <div class="container">
+        <p class="eyebrow" data-reveal>(01) — Filosofía</p>
+        <h2 class="philosophy__statement" data-text-fill>
+          Diseñamos casas residenciales en terrenos complejos, donde la luz, la
+          topografía y la normativa se convierten en materia de proyecto.
+        </h2>
+        <div class="philosophy__grid">
+          <p class="philosophy__body" data-reveal>
+            Cada encargo empieza con una lectura precisa del lugar. Traducimos el
+            terreno, el clima y la forma de habitar de cada cliente en una arquitectura
+            serena, construible y duradera.
+          </p>
+          <ul class="philosophy__facts">
+            <li data-reveal data-reveal-delay="1"><strong data-count="18">0</strong><span>Años de estudio</span></li>
+            <li data-reveal data-reveal-delay="2"><strong data-count="140">0</strong><span>Proyectos entregados</span></li>
+            <li data-reveal data-reveal-delay="3"><strong data-count="96" data-count-suffix="%">0</strong><span>Permisos aprobados</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         03 · PORTAFOLIO · cuadrícula asimétrica
+         ========================================================== -->
+    <section class="work section" id="portafolio">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow" data-reveal>(02) — Cartera</p>
+          <h2 class="section__title" data-reveal="words">Proyectos seleccionados</h2>
+        </header>
+      </div>
+
+      <div class="container">
+        <div class="work__grid">
+
+          <!-- CMS: bucle de proyectos -->
+          <article class="work__item work__item--tall" data-reveal>
+            <a class="work__link" href="#contacto" data-cursor-label="Ver">
+              <figure class="work__figure">
+                <img src="./assets/img/project-01.jpg" alt="Casa Belvedere, vivienda con vistas a la bahía"
+                     loading="lazy" decoding="async" data-media-fallback="Casa Belvedere">
+              </figure>
+              <div class="work__meta">
+                <span class="work__index">01</span>
+                <h3 class="work__name">Casa Belvedere</h3>
+                <span class="work__tag">Obra nueva · 420 m²</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="work__item work__item--offset" data-reveal data-reveal-delay="1">
+            <a class="work__link" href="#contacto" data-cursor-label="Ver">
+              <figure class="work__figure">
+                <img src="./assets/img/project-02.jpg" alt="Residencia Tiburon, terraza sobre la ladera"
+                     loading="lazy" decoding="async" data-media-fallback="Residencia Tiburon">
+              </figure>
+              <div class="work__meta">
+                <span class="work__index">02</span>
+                <h3 class="work__name">Residencia Tiburon</h3>
+                <span class="work__tag">Remodelación integral</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="work__item work__item--wide" data-reveal>
+            <a class="work__link" href="#contacto" data-cursor-label="Ver">
+              <figure class="work__figure">
+                <img src="./assets/img/project-03.jpg" alt="Pabellón Sausalito, salón abierto al jardín"
+                     loading="lazy" decoding="async" data-media-fallback="Pabellón Sausalito">
+              </figure>
+              <div class="work__meta">
+                <span class="work__index">03</span>
+                <h3 class="work__name">Pabellón Sausalito</h3>
+                <span class="work__tag">Interiorismo y obra</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="work__item" data-reveal>
+            <a class="work__link" href="#contacto" data-cursor-label="Ver">
+              <figure class="work__figure">
+                <img src="./assets/img/project-04.jpg" alt="Casa Mill Valley entre árboles"
+                     loading="lazy" decoding="async" data-media-fallback="Casa Mill Valley">
+              </figure>
+              <div class="work__meta">
+                <span class="work__index">04</span>
+                <h3 class="work__name">Casa Mill Valley</h3>
+                <span class="work__tag">Demolición y reconstrucción</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="work__item work__item--tall work__item--offset" data-reveal data-reveal-delay="1">
+            <a class="work__link" href="#contacto" data-cursor-label="Ver">
+              <figure class="work__figure">
+                <img src="./assets/img/project-05.jpg" alt="Ático Marina con vistas al puente"
+                     loading="lazy" decoding="async" data-media-fallback="Ático Marina">
+              </figure>
+              <div class="work__meta">
+                <span class="work__index">05</span>
+                <h3 class="work__name">Ático Marina</h3>
+                <span class="work__tag">Reforma · 260 m²</span>
+              </div>
+            </a>
+          </article>
+
+        </div>
+
+        <div class="work__more" data-reveal>
+          <a class="btn btn--fill" href="#contacto" data-magnetic>Ver la cartera completa</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         04 · SERVICIOS · lista interactiva con vista previa
+         ========================================================== -->
+    <section class="services section" id="servicios">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow" data-reveal>(03) — Servicios</p>
+          <h2 class="section__title" data-reveal="words">Cómo trabajamos contigo</h2>
+        </header>
+
+        <div class="services__wrap" data-services>
+          <div class="services__preview" data-services-preview aria-hidden="true">
+            <img alt="" data-services-preview-img>
+          </div>
+
+          <ul class="services__list">
+            <!-- CMS: bucle de servicios -->
+            <li class="service" data-service data-service-img="./assets/img/service-01.jpg" data-reveal>
+              <button class="service__head" aria-expanded="false">
+                <span class="service__num">01</span>
+                <span class="service__title">Diseño de casas a medida</span>
+                <span class="service__icon" aria-hidden="true"></span>
+              </button>
+              <div class="service__panel">
+                <p>Proyecto completo desde el análisis del solar hasta el detalle constructivo,
+                   con maquetas, recorridos 3D y control de presupuesto en cada fase.</p>
+              </div>
+            </li>
+
+            <li class="service" data-service data-service-img="./assets/img/service-02.jpg" data-reveal>
+              <button class="service__head" aria-expanded="false">
+                <span class="service__num">02</span>
+                <span class="service__title">Remodelaciones y reinvenciones</span>
+                <span class="service__icon" aria-hidden="true"></span>
+              </button>
+              <div class="service__panel">
+                <p>Reordenamos la casa existente para ganar luz, superficie útil y continuidad
+                   con el exterior, conservando lo que ya funciona.</p>
+              </div>
+            </li>
+
+            <li class="service" data-service data-service-img="./assets/img/service-03.jpg" data-reveal>
+              <button class="service__head" aria-expanded="false">
+                <span class="service__num">03</span>
+                <span class="service__title">Permisos y revisión normativa</span>
+                <span class="service__icon" aria-hidden="true"></span>
+              </button>
+              <div class="service__panel">
+                <p>Gestionamos la tramitación completa y anticipamos los puntos críticos de
+                   la normativa local antes de que se conviertan en retrasos.</p>
+              </div>
+            </li>
+
+            <li class="service" data-service data-service-img="./assets/img/service-04.jpg" data-reveal>
+              <button class="service__head" aria-expanded="false">
+                <span class="service__num">04</span>
+                <span class="service__title">Demolición y reconstrucción</span>
+                <span class="service__icon" aria-hidden="true"></span>
+              </button>
+              <div class="service__panel">
+                <p>Estrategia para terrenos difíciles: viabilidad, fases de obra y una
+                   arquitectura nueva que aprovecha al máximo la edificabilidad.</p>
+              </div>
+            </li>
+
+            <li class="service" data-service data-service-img="./assets/img/service-05.jpg" data-reveal>
+              <button class="service__head" aria-expanded="false">
+                <span class="service__num">05</span>
+                <span class="service__title">Arquitectura e interiorismo</span>
+                <span class="service__icon" aria-hidden="true"></span>
+              </button>
+              <div class="service__panel">
+                <p>Un único equipo para envolvente, materiales, mobiliario e iluminación,
+                   de modo que el interior y el exterior hablen el mismo idioma.</p>
+              </div>
+            </li>
+
+            <li class="service" data-service data-service-img="./assets/img/service-06.jpg" data-reveal>
+              <button class="service__head" aria-expanded="false">
+                <span class="service__num">06</span>
+                <span class="service__title">Supervisión de la construcción</span>
+                <span class="service__icon" aria-hidden="true"></span>
+              </button>
+              <div class="service__panel">
+                <p>Visitas de obra, control de calidad y coordinación con constructoras
+                   para que lo construido coincida con lo proyectado.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         05 · PROCESO
+         ========================================================== -->
+    <section class="process section section--dark" id="proceso">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow" data-reveal>(04) — Proceso</p>
+          <h2 class="section__title" data-reveal="words">Cuatro fases, cero sorpresas</h2>
+        </header>
+
+        <ol class="process__list">
+          <li class="process__step" data-reveal>
+            <span class="process__num">01</span>
+            <h3>Consulta</h3>
+            <p>Escuchamos el encargo, visitamos el terreno y definimos alcance, plazos y presupuesto orientativo.</p>
+          </li>
+          <li class="process__step" data-reveal data-reveal-delay="1">
+            <span class="process__num">02</span>
+            <h3>Anteproyecto</h3>
+            <p>Volumetría, distribución y carácter del proyecto sobre planos, modelos 3D y paleta de materiales.</p>
+          </li>
+          <li class="process__step" data-reveal data-reveal-delay="2">
+            <span class="process__num">03</span>
+            <h3>Licencia</h3>
+            <p>Documentación técnica, tramitación de permisos y coordinación con los agentes implicados.</p>
+          </li>
+          <li class="process__step" data-reveal data-reveal-delay="3">
+            <span class="process__num">04</span>
+            <h3>Obra</h3>
+            <p>Dirección facultativa, control de calidad y entrega de la vivienda lista para habitar.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         06 · TESTIMONIOS
+         ========================================================== -->
+    <section class="quote section" id="testimonios">
+      <div class="quote__bg" data-parallax="0.12">
+        <img src="./assets/img/testimonial-bg.jpg" alt="" loading="lazy" decoding="async" data-media-fallback="Interior del proyecto">
+      </div>
+      <div class="container quote__inner">
+        <blockquote class="quote__text" data-reveal="words">
+          Entendieron la casa antes que nosotros. El resultado es exactamente
+          la vida que queríamos, construida con una calma admirable.
+        </blockquote>
+        <footer class="quote__author" data-reveal data-reveal-delay="4">
+          <span>Marta y Daniel R.</span>
+          <span>Casa Belvedere · 2025</span>
+        </footer>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         07 · CONTACTO · captación de leads
+         ========================================================== -->
+    <section class="contact section" id="contacto">
+      <div class="container contact__grid">
+
+        <div class="contact__intro">
+          <h2 class="contact__title" data-reveal="words">Cada hogar empieza con una conversación</h2>
+          <p class="contact__body" data-reveal data-reveal-delay="4">
+            Cuéntanos tu terreno, tus objetivos y tus limitaciones, y te
+            recomendaremos el mejor siguiente paso: asesoramiento sobre permisos,
+            estrategia para parcelas complejas y una arquitectura precisa que
+            refleje vuestra forma de vivir.
+          </p>
+
+          <dl class="contact__info" data-reveal data-reveal-delay="5">
+            <div><dt>Tel.</dt><dd><a href="tel:+14154820224">+1 415 482 0224</a></dd></div>
+            <div><dt>Email</dt><dd><a href="mailto:hola@atelierstudio.co">hola@atelierstudio.co</a></dd></div>
+            <div><dt>Estudio</dt><dd>Calle Caledonia 30, Sausalito, California</dd></div>
+          </dl>
+        </div>
+
+        <!-- CMS: apuntar action al endpoint del backend -->
+        <form class="form" id="lead-form" action="./api/lead" method="post" novalidate data-reveal data-reveal-delay="2">
+          <div class="field">
+            <input class="field__input" type="text" id="f-name" name="name" placeholder=" " required autocomplete="name">
+            <label class="field__label" for="f-name">Nombre</label>
+            <p class="field__error" data-error-for="f-name"></p>
+          </div>
+
+          <div class="field">
+            <input class="field__input" type="email" id="f-email" name="email" placeholder=" " required autocomplete="email">
+            <label class="field__label" for="f-email">Correo electrónico</label>
+            <p class="field__error" data-error-for="f-email"></p>
+          </div>
+
+          <div class="field">
+            <input class="field__input" type="tel" id="f-phone" name="phone" placeholder=" " autocomplete="tel">
+            <label class="field__label" for="f-phone">Teléfono</label>
+            <p class="field__error" data-error-for="f-phone"></p>
+          </div>
+
+          <div class="field field--select">
+            <select class="field__input" id="f-type" name="type" required>
+              <option value="" selected disabled></option>
+              <option value="obra-nueva">Obra nueva</option>
+              <option value="remodelacion">Remodelación</option>
+              <option value="interiorismo">Interiorismo</option>
+              <option value="permisos">Permisos y viabilidad</option>
+              <option value="otro">Otro</option>
+            </select>
+            <label class="field__label" for="f-type">¿De qué se trata?</label>
+            <p class="field__error" data-error-for="f-type"></p>
+          </div>
+
+          <div class="field field--full">
+            <textarea class="field__input" id="f-message" name="message" rows="4" placeholder=" " required></textarea>
+            <label class="field__label" for="f-message">Comparte tu visión</label>
+            <p class="field__error" data-error-for="f-message"></p>
+          </div>
+
+          <!-- honeypot anti-spam -->
+          <input class="field__honey" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="form__foot field--full">
+            <button class="btn btn--fill" type="submit" data-magnetic>Entregar</button>
+            <p class="form__status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__brand">
+        <span class="wordmark footer__mark" data-reveal>Atelier</span>
+        <p class="footer__claim" data-reveal data-reveal-delay="1">Arquitectura que encuentra la elegancia con intención.</p>
+      </div>
+
+      <div class="footer__cols">
+        <nav class="footer__col" aria-label="Estudio">
+          <h4>Estudio</h4>
+          <ul>
+            <li><a href="#filosofia">Acerca de</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#proceso">Proceso</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+        <nav class="footer__col" aria-label="Servicios">
+          <h4>Servicios</h4>
+          <ul>
+            <li><a href="#servicios">Diseño de casas a medida</a></li>
+            <li><a href="#servicios">Remodelaciones integrales</a></li>
+            <li><a href="#servicios">Permisos y normativa</a></li>
+            <li><a href="#servicios">Demolición y reconstrucción</a></li>
+            <li><a href="#servicios">Interiorismo</a></li>
+            <li><a href="#servicios">Supervisión de obra</a></li>
+          </ul>
+        </nav>
+        <nav class="footer__col" aria-label="Trabajo">
+          <h4>Trabajo</h4>
+          <ul>
+            <li><a href="#portafolio">Cartera</a></li>
+            <li><a href="#testimonios">Testimonios</a></li>
+            <li><a href="#filosofia">Historias</a></li>
+            <li><a href="#contacto">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__social">
+        <a href="#" rel="noopener">Instagram</a>
+        <a href="#" rel="noopener">Facebook</a>
+        <a href="#" rel="noopener">LinkedIn</a>
+        <a href="#" rel="noopener">Houzz</a>
+      </div>
+
+      <div class="footer__legal">
+        <span>© <span data-year>2026</span> Atelier Studio</span>
+        <a href="#">Política de privacidad</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       SCRIPTS · núcleo → módulos → arranque
+       (scripts clásicos: funcionan también abriendo el archivo
+        directamente con file:// y en cualquier backend)
+       ============================================================ -->
+  <script src="./assets/js/core/app.js" defer></script>
+  <script src="./assets/js/core/utils.js" defer></script>
+  <script src="./assets/js/core/ticker.js" defer></script>
+
+  <script src="./assets/js/modules/preloader.js" defer></script>
+  <script src="./assets/js/modules/media-fallback.js" defer></script>
+  <script src="./assets/js/modules/smooth-scroll.js" defer></script>
+  <script src="./assets/js/modules/navbar.js" defer></script>
+  <script src="./assets/js/modules/menu.js" defer></script>
+  <script src="./assets/js/modules/reveal.js" defer></script>
+  <script src="./assets/js/modules/text-fill.js" defer></script>
+  <script src="./assets/js/modules/counter.js" defer></script>
+  <script src="./assets/js/modules/parallax.js" defer></script>
+  <script src="./assets/js/modules/magnetic.js" defer></script>
+  <script src="./assets/js/modules/cursor.js" defer></script>
+  <script src="./assets/js/modules/services.js" defer></script>
+  <script src="./assets/js/modules/lead-form.js" defer></script>
+
+  <script src="./assets/js/main.js" defer></script>
+</body>
+</html>

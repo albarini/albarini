@@ -1,0 +1,55 @@
+/* ============================================================
+   LAYOUT · contenedores, ritmo vertical y rejillas base
+   ============================================================ */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.container--narrow { max-width: 940px; }
+
+/* Compensa la barra fija al saltar a un anclaje sin JS */
+section[id] { scroll-margin-top: var(--nav-h); }
+#hero { scroll-margin-top: 0; }
+
+.section {
+  position: relative;
+  padding-block: var(--section-y);
+}
+
+.section--dark {
+  background: var(--c-bg-dark);
+  color: var(--c-inverse);
+}
+
+.section--soft { background: var(--c-bg-soft); }
+
+.section__head {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.75rem);
+  margin-bottom: clamp(2.5rem, 6vw, 5rem);
+  max-width: 42ch;
+}
+
+.section__title {
+  font-size: var(--fs-xl);
+  letter-spacing: var(--track-tight);
+  font-weight: 200;
+}
+
+/* Rejilla editorial de 12 columnas, disponible para cualquier sección */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 2.5rem);
+}
+
+@media (max-width: 900px) {
+  .grid-12 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .grid-12 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
