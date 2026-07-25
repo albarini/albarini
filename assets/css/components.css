@@ -90,10 +90,19 @@
 /* Letras pequeñas y MUY separadas, no grandes y juntas: es lo que da al
    logotipo de la referencia su carácter ancho y ligero dentro de una barra
    baja. El tracking hace el ancho, no el cuerpo de la letra. */
+/* 13 px de cuerpo y 188 px de ancho total para «MAISON» (6 caracteres).
+
+   El ancho responde a  6·avance + 7·tracking  —siete y no seis, porque el
+   text-indent que centra ópticamente el conjunto vale otro tracking y también
+   suma. Con Michroma a 13 px el avance medido es 8,32 px, de donde
+   tracking = (188 − 6·8,32) / 7 ≈ 19,7 px ≈ 1,52em.
+
+   Si cambia el nombre de la marca hay que recalcular con su nº de caracteres:
+   tracking = (ancho − nº·8,32) / (nº + 1). */
 .nav__brand .wordmark {
-  font-size: clamp(.72rem, .82vw, .95rem);
-  letter-spacing: .92em;
-  text-indent: .92em;
+  font-size: 13px;
+  letter-spacing: 1.52em;
+  text-indent: 1.52em;
 }
 
 /* Enlace con subrayado que se revela desde la izquierda */
