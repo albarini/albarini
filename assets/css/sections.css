@@ -140,12 +140,15 @@
   margin-inline: auto;
 }
 
+/* Sin `hyphens: auto`: partía palabras al final de línea («pro-yecta»,
+   «docu-mentación») y ensuciaba el bloque de guiones. El texto justificado
+   reparte el espacio entre palabras enteras. */
 .about__cols p {
   font-size: var(--fs-base);
   font-weight: 600;
   line-height: 1.65;
   text-align: justify;
-  hyphens: auto;
+  hyphens: manual;
 }
 
 @media (max-width: 780px) {
