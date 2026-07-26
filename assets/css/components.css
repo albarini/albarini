@@ -268,6 +268,69 @@
 }
 
 /* ------------------------------------------------------------
+   2b · REDES SOCIALES · icono + rótulo
+   ------------------------------------------------------------ */
+.social {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: var(--fs-sm);
+  color: var(--c-inverse-soft);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.social svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  fill: currentColor;
+}
+/* El contorno del icono de Instagram se dibuja con trazo, no con relleno */
+.social svg rect,
+.social svg circle {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+}
+.social svg .social__dot { fill: currentColor; stroke: none; }
+
+@media (hover: hover) and (pointer: fine) {
+  .social:hover { color: var(--c-inverse); }
+}
+
+/* ------------------------------------------------------------
+   2c · BOTÓN FLOTANTE DE WHATSAPP
+   position: fixed + transform: no provoca reflow al hacer scroll.
+   ------------------------------------------------------------ */
+.wa {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  z-index: 750;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .28);
+  transition: transform var(--dur-fast) var(--ease-out),
+              box-shadow var(--dur-fast) var(--ease-out);
+}
+.wa svg { width: 30px; height: 30px; fill: currentColor; }
+
+@media (hover: hover) and (pointer: fine) {
+  .wa:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, .34);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa { transition: none; }
+}
+
+/* ------------------------------------------------------------
    3 · BOTONES
    ------------------------------------------------------------ */
 .btn {

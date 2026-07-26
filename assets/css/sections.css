@@ -116,8 +116,45 @@
   color: rgba(10, 10, 10, .45);
 }
 
+/* ------------------------------------------------------------
+   02 · ESTUDIO · descripción a dos columnas
+   ------------------------------------------------------------ */
+.about { background: var(--c-bg-soft); }
+
+.about__title {
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--track-wide);
+  line-height: 1.25;
+  text-align: center;
+  max-width: 24ch;
+  margin: 0 auto clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.about__cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 5vw, 5rem);
+  max-width: 62rem;
+  margin-inline: auto;
+}
+
+.about__cols p {
+  font-size: var(--fs-base);
+  font-weight: 600;
+  line-height: 1.65;
+  text-align: justify;
+  hyphens: auto;
+}
+
+@media (max-width: 780px) {
+  .about__cols { grid-template-columns: minmax(0, 1fr); }
+  .about__cols p { text-align: left; hyphens: manual; }
+}
+
 /* Aire generoso entre el hero y el primer titular del cuerpo */
-.work { padding-top: clamp(5rem, 14vh, 9rem); }
+.about { padding-top: clamp(5rem, 14vh, 9rem); }
 
 /* ------------------------------------------------------------
    02 · CARTERA · cuadrícula asimétrica
@@ -208,29 +245,31 @@
 .service { border-top: 1px solid var(--c-line); }
 .service:last-child { border-bottom: 1px solid var(--c-line); }
 
+/* Bloque deliberadamente compacto: filas bajas, tipos pequeños y
+   semi-negrita. La lista gana densidad y se lee de un vistazo. */
 .service__head {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: clamp(1rem, 3vw, 3rem);
+  gap: clamp(.75rem, 2vw, 1.75rem);
   width: 100%;
-  padding: clamp(1.4rem, 3vw, 2.4rem) 0;
+  padding: clamp(.85rem, 1.6vw, 1.15rem) 0;
   text-align: left;
-  transition: color var(--dur-fast) var(--ease-out), padding-left var(--dur) var(--ease-expo);
+  transition: color var(--dur-fast) var(--ease-out);
 }
-.service:hover .service__head { padding-left: clamp(.5rem, 1.5vw, 1.25rem); }
 
 .service__num {
   font-size: var(--fs-xs);
+  font-weight: 600;
   letter-spacing: var(--track-wide);
   color: var(--c-ink-mute);
 }
 
 .service__title {
-  font-size: clamp(1.15rem, 2.6vw, 2.1rem);
-  font-weight: 400;
-  letter-spacing: var(--track-tight);
-  line-height: 1.2;
+  font-size: clamp(.95rem, 1.1vw, 1.15rem);
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.3;
 }
 
 .service__icon {
@@ -260,16 +299,19 @@
 
 .service__panel > p {
   overflow: hidden;
-  max-width: 60ch;
+  max-width: 62ch;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  line-height: 1.55;
   color: var(--c-ink-soft);
-  padding-left: clamp(0px, 6vw, 5.5rem);
+  padding-left: clamp(0px, 3.5vw, 3rem);
   opacity: 0;
   transition: opacity var(--dur) var(--ease-out), padding-bottom var(--dur) var(--ease-expo);
   padding-bottom: 0;
 }
 .service.is-open .service__panel > p {
   opacity: 1;
-  padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  padding-bottom: clamp(.9rem, 1.6vw, 1.35rem);
 }
 
 /* ------------------------------------------------------------
@@ -453,13 +495,8 @@
   gap: clamp(1.25rem, 3vw, 2.5rem);
   margin-bottom: clamp(2rem, 4vw, 3rem);
 }
-.footer__social a {
-  font-size: var(--fs-sm);
-  border-bottom: 1px solid var(--c-line-inverse);
-  padding-bottom: .25rem;
-  transition: border-color var(--dur-fast);
-}
-.footer__social a:hover { border-color: var(--c-inverse); }
+/* El subrayado se retira: con icono al lado la línea ensuciaba la fila. */
+.footer__social a { padding-bottom: .25rem; }
 
 .footer__legal {
   display: flex;

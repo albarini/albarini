@@ -15,7 +15,11 @@
     /* ---- Configuración global (ajustable sin tocar módulos) ---- */
     config: {
       smoothScroll: {
-        enabled: true,
+        /* Desactivado. Interpolar el scroll obliga a escribir la posición en
+           cada fotograma y a repintar la página entera con ella; el scroll
+           nativo va sobre el compositor del navegador y nunca se atasca.
+           Los anclajes siguen funcionando con desplazamiento suave nativo. */
+        enabled: false,
         lerp: 0.09,          // 0 = infinito, 1 = instantáneo
         wheelMultiplier: 1,
         resyncDelay: 140     // ms sin rueda antes de re-sincronizar
