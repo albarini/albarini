@@ -116,7 +116,7 @@
       </nav>
 
       <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
-        <span></span><span></span>
+        <span></span><span></span><span></span>
       </button>
 
     </div>
@@ -126,20 +126,37 @@
        MENÚ MÓVIL
        ============================================================ -->
   <div class="menu" id="menu" hidden>
-    <nav class="menu__nav" aria-label="Menú móvil">
-      <ul class="menu__list">
-        <li style="--i:0"><a href="#portafolio" data-menu-close>Cartera</a></li>
-        <li style="--i:1"><a href="#estudio" data-menu-close>Acerca de</a></li>
-        <li style="--i:2"><a href="#servicios" data-menu-close>Servicios</a></li>
-        <li style="--i:3"><a href="#proceso" data-menu-close>Proceso</a></li>
-        <li style="--i:4"><a href="#testimonios" data-menu-close>Testimonios</a></li>
-        <li style="--i:5"><a href="#contacto" data-menu-close>Contacto</a></li>
-      </ul>
-    </nav>
-    <!-- CMS: datos de contacto -->
-    <div class="menu__foot">
-      <a href="tel:+15550100">+1 555 0100</a>
-      <a href="mailto:hola@tu-dominio.com">hola@tu-dominio.com</a>
+    <div class="menu__panel">
+
+      <div class="menu__head">
+        <button class="menu__close" type="button" data-menu-close aria-label="Cerrar menú">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          </svg>
+        </button>
+        <span class="menu__brand">
+          <small class="nav__brand-kicker">Aedora</small>
+          <span class="wordmark">Maison</span>
+        </span>
+      </div>
+
+      <nav class="menu__nav" aria-label="Menú móvil">
+        <ul class="menu__list">
+          <li style="--i:0"><a href="#estudio" data-menu-close>Acerca de</a></li>
+          <li style="--i:1"><a href="#proceso" data-menu-close>Proceso</a></li>
+          <li style="--i:2"><a href="#servicios" data-menu-close>Servicios</a></li>
+          <li style="--i:3"><a href="#portafolio" data-menu-close>Cartera</a></li>
+          <li style="--i:4"><a href="#testimonios" data-menu-close>Testimonios</a></li>
+          <li style="--i:5"><a href="#contacto" data-menu-close>Contacto</a></li>
+        </ul>
+      </nav>
+
+      <!-- CMS: datos de contacto -->
+      <div class="menu__foot">
+        <a href="tel:+15550100">+1 555 0100</a>
+        <a href="mailto:hola@tu-dominio.com">hola@tu-dominio.com</a>
+      </div>
+
     </div>
   </div>
 

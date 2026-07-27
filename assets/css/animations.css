@@ -12,13 +12,16 @@
    desde el primer momento, esté o no en pantalla. El translate3d
    ya activa la GPU durante la propia transición.
    ------------------------------------------------------------ */
+/* Aparición deliberadamente sutil: manda la opacidad y el desplazamiento es
+   apenas perceptible (16 px). Un recorrido largo llama la atención sobre la
+   animación; uno corto solo hace que el contenido «se asiente». */
 .js [data-reveal] {
   opacity: 0;
-  transform: translate3d(0, 42px, 0);
+  transform: translate3d(0, 16px, 0);
   transition:
-    opacity var(--dur-slow) var(--ease-expo),
-    transform var(--dur-slow) var(--ease-expo);
-  transition-delay: calc(var(--reveal-delay, 0) * 90ms);
+    opacity 1.1s var(--ease-out),
+    transform 1.1s var(--ease-expo);
+  transition-delay: calc(var(--reveal-delay, 0) * 70ms);
 }
 
 .js [data-reveal].is-inview {
