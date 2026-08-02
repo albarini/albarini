@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="es-PE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maison Albarini | Maquinaria, repuestos y servicio tecnico</title>
+<meta name="description" content="Maison Albarini distribuye maquinaria pesada, repuestos originales, grupos electrogenos y servicio tecnico certificado en todo el pais. Venta, alquiler y postventa.">
+<meta name="theme-color" content="#fbbd00">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Maison Albarini | Maquinaria, repuestos y servicio tecnico">
+<meta property="og:description" content="Venta y alquiler de maquinaria pesada, repuestos originales y servicio tecnico certificado.">
+<meta property="og:locale" content="es_PE">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="./assets/css/base.css">
+<link rel="stylesheet" href="./assets/css/layout.css">
+<link rel="stylesheet" href="./assets/css/components.css">
+</head>
+
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<!-- ============================================================
+     CABECERA
+     ============================================================ -->
+<header class="header" id="header">
+  <div class="container">
+
+    <div class="topbar">
+      <div class="topbar__links">
+        <a class="topbar__link topbar__link--accent" href="#portal">Portal de clientes</a>
+        <a class="topbar__link" href="#sedes">Nuestras sedes</a>
+        <a class="topbar__link" href="#contacto">Escribanos</a>
+      </div>
+
+      <label class="visually-hidden" for="care-select">Atencion al cliente</label>
+      <select class="topbar__select" id="care-select">
+        <option>Atencion al cliente</option>
+        <option>Consultas generales</option>
+        <option>Venta de repuestos</option>
+        <option>Servicio tecnico</option>
+        <option>Libro de reclamaciones</option>
+      </select>
+
+      <form class="search" role="search" action="#" onsubmit="return false">
+        <label class="visually-hidden" for="q">Buscar en el sitio</label>
+        <input class="search__input" id="q" type="search" placeholder="Buscar equipos, repuestos o servicios">
+        <button class="search__btn" type="submit" aria-label="Buscar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    <div class="masthead">
+      <a class="brand" href="./" aria-label="Maison Albarini, inicio">
+        <span class="brand__mark">
+          <span class="brand__name">Maison Albarini</span>
+          <span class="brand__badge">MA</span>
+        </span>
+        <span class="brand__tag">Una empresa Albarini Group</span>
+      </a>
+
+      <nav class="nav" aria-label="Navegacion principal">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="#nosotros">Nosotros</a>
+          </li>
+
+          <li class="nav__item" data-mega>
+            <a class="nav__link" href="#productos" aria-expanded="false">
+              Productos
+              <svg class="nav__caret" viewBox="0 0 10 6" aria-hidden="true"><path d="M0 0h10L5 6z"/></svg>
+            </a>
+            <div class="mega">
+              <a class="mega__link" href="#">Excavadoras</a>
+              <a class="mega__link" href="#">Cargadores frontales</a>
+              <a class="mega__link" href="#">Motoniveladoras</a>
+              <a class="mega__link" href="#">Tractores de oruga</a>
+              <a class="mega__link" href="#">Camiones mineros</a>
+              <a class="mega__link" href="#">Compactadores</a>
+              <a class="mega__link" href="#">Manipuladores de materiales</a>
+              <a class="mega__link" href="#">Mineria subterranea</a>
+            </div>
+          </li>
+
+          <li class="nav__item" data-mega>
+            <a class="nav__link" href="#repuestos" aria-expanded="false">
+              Repuestos
+              <svg class="nav__caret" viewBox="0 0 10 6" aria-hidden="true"><path d="M0 0h10L5 6z"/></svg>
+            </a>
+            <div class="mega">
+              <a class="mega__link" href="#">Repuestos originales</a>
+              <a class="mega__link" href="#">Componentes remanufacturados</a>
+              <a class="mega__link" href="#">Filtros y lubricantes</a>
+              <a class="mega__link" href="#">Tren de rodamiento</a>
+              <a class="mega__link" href="#">Herramientas de corte</a>
+            </div>
+          </li>
+
+          <li class="nav__item" data-mega>
+            <a class="nav__link" href="#servicios" aria-expanded="false">
+              Servicios
+              <svg class="nav__caret" viewBox="0 0 10 6" aria-hidden="true"><path d="M0 0h10L5 6z"/></svg>
+            </a>
+            <div class="mega">
+              <a class="mega__link" href="#">Mantenimiento preventivo</a>
+              <a class="mega__link" href="#">Reparacion de componentes</a>
+              <a class="mega__link" href="#">Contratos de soporte</a>
+              <a class="mega__link" href="#">Servicio en campo</a>
+              <a class="mega__link" href="#">Capacitacion de operadores</a>
+            </div>
+          </li>
+
+          <li class="nav__item" data-mega>
+            <a class="nav__link" href="#tecnologia" aria-expanded="false">
+              Tecnologia
+              <svg class="nav__caret" viewBox="0 0 10 6" aria-hidden="true"><path d="M0 0h10L5 6z"/></svg>
+            </a>
+            <div class="mega">
+              <a class="mega__link" href="#">Telemetria de flota</a>
+              <a class="mega__link" href="#">Sistemas de pesaje</a>
+              <a class="mega__link" href="#">Control de fatiga</a>
+              <a class="mega__link" href="#">Automatizacion de equipos</a>
+            </div>
+          </li>
+
+          <li class="nav__item"><a class="nav__link" href="#novedades">Novedades</a></li>
+          <li class="nav__item"><a class="nav__link" href="#promociones">Promociones</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn btn--pill" href="#asesoria">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2l1.9 5.6L19.5 9l-5.6 1.9L12 16.5l-1.9-5.6L4.5 9l5.6-1.4z"/>
+          <path d="M18.5 14l.9 2.6 2.6.9-2.6.9-.9 2.6-.9-2.6-2.6-.9 2.6-.9z"/>
+        </svg>
+        Asesoria IA
+      </a>
+
+      <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- cajon movil -->
+<div class="scrim" id="scrim" hidden></div>
+<nav class="drawer" id="drawer" aria-label="Navegacion movil" aria-hidden="true">
+  <button class="drawer__close" id="drawerClose" type="button" aria-label="Cerrar menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <path d="M5 5l14 14M19 5L5 19"/>
+    </svg>
+  </button>
+  <ul class="drawer__list">
+    <li><a class="drawer__link" href="#nosotros">Nosotros</a></li>
+    <li><a class="drawer__link" href="#productos">Productos</a></li>
+    <li><a class="drawer__link" href="#repuestos">Repuestos</a></li>
+    <li><a class="drawer__link" href="#servicios">Servicios</a></li>
+    <li><a class="drawer__link" href="#tecnologia">Tecnologia</a></li>
+    <li><a class="drawer__link" href="#novedades">Novedades</a></li>
+    <li><a class="drawer__link" href="#promociones">Promociones</a></li>
+    <li><a class="drawer__link" href="#portal">Portal de clientes</a></li>
+    <li><a class="drawer__link" href="#sedes">Nuestras sedes</a></li>
+  </ul>
+  <div class="drawer__foot">
+    <a class="btn btn--pill" href="#asesoria">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2l1.9 5.6L19.5 9l-5.6 1.9L12 16.5l-1.9-5.6L4.5 9l5.6-1.4z"/>
+        <path d="M18.5 14l.9 2.6 2.6.9-2.6.9-.9 2.6-.9-2.6-2.6-.9 2.6-.9z"/>
+      </svg>
+      Asesoria IA
+    </a>
+    <a class="btn btn--ghost" href="#cotizacion">Solicite una cotizacion</a>
+    <p class="drawer__meta">Call center: (01) 626 4000<br>Lunes a viernes de 08:00 a 17:00</p>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <div class="hero-wrap">
+    <section class="hero" id="hero" aria-label="Destacados" aria-roledescription="carrusel">
+      <div class="hero__track" id="heroTrack">
+
+        <article class="hero__slide is-active" aria-label="1 de 6">
+          <div class="hero__media" data-img="./assets/img/hero-01.jpg"></div>
+          <div class="container hero__inner">
+            <h1 class="t-hero hero__title">Compra tus repuestos originales con 35% de descuento</h1>
+            <div class="hero__rule"></div>
+            <p class="t-hero-sub hero__sub">Campana vigente hasta fin de mes</p>
+            <a class="btn btn--ghost hero__cta" href="#promociones">Ver mas informacion</a>
+          </div>
+        </article>
+
+        <article class="hero__slide" aria-label="2 de 6" hidden>
+          <div class="hero__media" data-img="./assets/img/hero-02.jpg"></div>
+          <div class="container hero__inner">
+            <h1 class="t-hero hero__title">Excavadoras de nueva generacion</h1>
+            <div class="hero__rule"></div>
+            <p class="t-hero-sub hero__sub">Mas potencia con menor consumo por hora</p>
+            <a class="btn btn--ghost hero__cta" href="#productos">Ver mas informacion</a>
+          </div>
+        </article>
+
+        <article class="hero__slide" aria-label="3 de 6" hidden>
+          <div class="hero__media" data-img="./assets/img/hero-03.jpg"></div>
+          <div class="container hero__inner">
+            <h1 class="t-hero hero__title">Alquiler de equipos para tu obra</h1>
+            <div class="hero__rule"></div>
+            <p class="t-hero-sub hero__sub">Flota disponible por dia, mes o proyecto</p>
+            <a class="btn btn--ghost hero__cta" href="#alquiler">Ver mas informacion</a>
+          </div>
+        </article>
+
+        <article class="hero__slide" aria-label="4 de 6" hidden>
+          <div class="hero__media" data-img="./assets/img/hero-04.jpg"></div>
+          <div class="container hero__inner">
+            <h1 class="t-hero hero__title">Grupos electrogenos de alta potencia</h1>
+            <div class="hero__rule"></div>
+            <p class="t-hero-sub hero__sub">Respaldo continuo para tu operacion</p>
+            <a class="btn btn--ghost hero__cta" href="#energia">Ver mas informacion</a>
+          </div>
+        </article>
+
+        <article class="hero__slide" aria-label="5 de 6" hidden>
+          <div class="hero__media" data-img="./assets/img/hero-05.jpg"></div>
+          <div class="container hero__inner">
+            <h1 class="t-hero hero__title">Servicio tecnico certificado 24/7</h1>
+            <div class="hero__rule"></div>
+            <p class="t-hero-sub hero__sub">Tecnicos en campo en todo el pais</p>
+            <a class="btn btn--ghost hero__cta" href="#servicios">Ver mas informacion</a>
+          </div>
+        </article>
+
+        <article class="hero__slide" aria-label="6 de 6" hidden>
+          <div class="hero__media" data-img="./assets/img/hero-06.jpg"></div>
+          <div class="container hero__inner">
+            <h1 class="t-hero hero__title">Financiamiento a la medida de tu proyecto</h1>
+            <div class="hero__rule"></div>
+            <p class="t-hero-sub hero__sub">Aprobacion en 72 horas</p>
+            <a class="btn btn--ghost hero__cta" href="#financiamiento">Ver mas informacion</a>
+          </div>
+        </article>
+
+      </div>
+
+      <button class="hero__arrow hero__arrow--prev" id="heroPrev" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M15 4l-8 8 8 8"/></svg>
+      </button>
+      <button class="hero__arrow hero__arrow--next" id="heroNext" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 4l8 8-8 8"/></svg>
+      </button>
+
+      <div class="hero__dots" id="heroDots" role="tablist" aria-label="Elegir diapositiva"></div>
+    </section>
+
+    <a class="quote" href="#cotizacion" id="cotizacion">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+        <rect x="4" y="2" width="16" height="20" rx="1.5"/>
+        <rect x="7" y="5" width="10" height="4" rx=".6" fill="currentColor"/>
+        <circle cx="8.5" cy="13" r="1.1" fill="currentColor"/>
+        <circle cx="12" cy="13" r="1.1" fill="currentColor"/>
+        <circle cx="15.5" cy="13" r="1.1" fill="currentColor"/>
+        <circle cx="8.5" cy="17" r="1.1" fill="currentColor"/>
+        <circle cx="12" cy="17" r="1.1" fill="currentColor"/>
+        <circle cx="15.5" cy="17" r="1.1" fill="currentColor"/>
+      </svg>
+      Solicite una cotizacion
+    </a>
+  </div>
+
+  <!-- ============================================================
+       MOSAICO
+       ============================================================ -->
+  <section class="mosaic" aria-label="Lineas de negocio">
+    <div class="container">
+      <div class="grid">
+
+        <a class="card card--top col-6 reveal" href="#productos" id="productos">
+          <span class="card__media" data-img="./assets/img/card-equipos.jpg"></span>
+          <span class="card__bar">
+            <span>
+              <span class="t-card card__title">Equipos</span>
+              <span class="card__body"><span>Invierte en el futuro de tu negocio. Nuestros equipos nuevos combinan potencia, bajo consumo y respaldo tecnico en todo el pais.</span></span>
+            </span>
+            <span class="card__plus" aria-hidden="true"></span>
+          </span>
+        </a>
+
+        <a class="card card--bottom col-3 reveal" href="#servicios" id="servicios">
+          <span class="card__media" data-img="./assets/img/card-servicios.jpg"></span>
+          <span class="card__bar">
+            <span>
+              <span class="t-card card__title">Servicios</span>
+              <span class="card__body"><span>Invierte en la salud de tu flota con mantenimiento preventivo y reparacion de componentes.</span></span>
+            </span>
+            <span class="card__plus" aria-hidden="true"></span>
+          </span>
+        </a>
+
+        <a class="card card--top col-3 reveal" href="#repuestos" id="repuestos">
+          <span class="card__media" data-img="./assets/img/card-repuestos.jpg"></span>
+          <span class="card__bar">
+            <span>
+              <span class="t-card card__title">Repuestos</span>
+              <span class="card__body"><span>Piezas originales con garantia y entrega en 24 horas a nivel nacional.</span></span>
+            </span>
+            <span class="card__plus" aria-hidden="true"></span>
+          </span>
+        </a>
+
+        <a class="card card--top col-3 reveal" href="#alquiler" id="alquiler">
+          <span class="card__media" data-img="./assets/img/card-alquiler.jpg"></span>
+          <span class="card__bar">
+            <span>
+              <span class="t-card card__title">Alquiler de equipos</span>
+              <span class="card__body"><span>Soluciones flexibles por dia, mes o proyecto, con operador opcional.</span></span>
+            </span>
+            <span class="card__plus" aria-hidden="true"></span>
+          </span>
+        </a>
+
+        <a class="card card--bottom col-3 reveal" href="#tecnologia" id="tecnologia">
+          <span class="card__media" data-img="./assets/img/card-tecnologia.jpg"></span>
+          <span class="card__bar">
+            <span>
+              <span class="t-card card__title">Tecnologia</span>
+              <span class="card__body"><span>Telemetria, pesaje y automatizacion para decidir con datos reales de tu flota.</span></span>
+            </span>
+            <span class="card__plus" aria-hidden="true"></span>
+          </span>
+        </a>
+
+        <a class="card card--bottom col-6 reveal" href="#energia" id="energia">
+          <span class="card__media" data-img="./assets/img/card-energia.jpg"></span>
+          <span class="card__bar">
+            <span>
+              <span class="t-card card__title">Grupos electrogenos</span>
+              <span class="card__body"><span>Fabricados con altos estandares de calidad para dar respaldo continuo a plantas, mineras y centros de datos.</span></span>
+            </span>
+            <span class="card__plus" aria-hidden="true"></span>
+          </span>
+        </a>
+
+        <a class="card card--light card--bottom col-6 reveal" href="#tienda">
+          <span class="card__media" data-img="./assets/img/card-tienda.jpg"></span>
+          <span class="card__promo">
+            1.4 millones
+            <mark>de repuestos</mark>
+            a tu alcance
+          </span>
+          <span class="card__bar">
+            <span>
+              <span class="t-card card__title">Tienda de repuestos</span>
+              <span class="card__body"><span>Cotiza, compra y sigue tu pedido en linea, las 24 horas.</span></span>
+            </span>
+            <span class="card__plus" aria-hidden="true"></span>
+          </span>
+        </a>
+
+        <a class="card card--bottom col-3 reveal" href="#portal" id="portal">
+          <span class="card__media" data-img="./assets/img/card-portal.jpg"></span>
+          <span class="card__bar">
+            <span>
+              <span class="t-card card__title">Portal Maison</span>
+              <span class="card__body"><span>Toda tu informacion de flota, ordenes y facturas en un solo lugar.</span></span>
+            </span>
+            <span class="card__plus" aria-hidden="true"></span>
+          </span>
+        </a>
+
+        <a class="card card--bottom col-3 reveal" href="#novedades" id="novedades">
+          <span class="card__media" data-img="./assets/img/card-novedades.jpg"></span>
+          <span class="card__bar">
+            <span>
+              <span class="t-card card__title">Novedades</span>
+              <span class="card__body"><span>Encuentra las ultimas novedades de la industria y de nuestra red.</span></span>
+            </span>
+            <span class="card__plus" aria-hidden="true"></span>
+          </span>
+        </a>
+
+        <a class="card card--bottom col-6 reveal" href="#seguridad">
+          <span class="card__media" data-img="./assets/img/card-seguridad.jpg"></span>
+          <span class="card__bar">
+            <span>
+              <span class="t-card card__title">Aviso de seguridad</span>
+              <span class="card__body"><span>Si ves alguna convocatoria laboral fuera de nuestros canales oficiales, escribe a nuestro contact center antes de responder.</span></span>
+            </span>
+            <span class="card__plus" aria-hidden="true"></span>
+          </span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     PIE DE PAGINA
+     ============================================================ -->
+<footer id="contacto">
+
+  <div class="foot-white">
+    <div class="container">
+      <div class="foot-white__grid">
+
+        <div class="portal">
+          <h3 class="portal__title portal__title--accent">Ingrese a MaisonNet</h3>
+          <div class="portal__shot">
+            <span class="portal__wordmark">Maison<b>Net</b></span>
+          </div>
+          <p class="portal__text">Plataforma dirigida a los clientes de Maison Albarini donde podran encontrar informacion personalizada sobre su negocio.</p>
+          <a class="btn btn--outline" href="#">Ingresar</a>
+        </div>
+
+        <div class="portal">
+          <h3 class="portal__title">MaisonShop</h3>
+          <div class="portal__shot">
+            <span class="portal__wordmark">Maison<b>Shop</b></span>
+          </div>
+          <p class="portal__text">Accede a los productos de merchandising mas exclusivos y originales en nuestra tienda virtual.</p>
+          <a class="btn btn--outline" href="#">Ingresar</a>
+        </div>
+
+        <div class="portal">
+          <h3 class="portal__title">Rentalba</h3>
+          <div class="portal__shot">
+            <span class="portal__wordmark">Rent<b>alba</b></span>
+          </div>
+          <p class="portal__text">Rentalba es la unidad de negocios de Maison Albarini especializada en el alquiler de maquinaria pesada y la venta de equipos seminuevos y usados.</p>
+          <a class="btn btn--outline" href="#">Ingresar</a>
+        </div>
+
+        <aside class="care">
+          <div class="care__head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M4 18v-6a8 8 0 0116 0v6"/>
+              <rect x="2.5" y="13" width="4.5" height="7" rx="1.6" fill="currentColor" stroke="none"/>
+              <rect x="17" y="13" width="4.5" height="7" rx="1.6" fill="currentColor" stroke="none"/>
+            </svg>
+            <h3>Atencion al cliente</h3>
+          </div>
+
+          <div class="care__block">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 2.5l3 .5 1.2 4-2.1 1.7a13 13 0 006.6 6.6l1.7-2.1 4 1.2.5 3A2 2 0 0119.4 21C10.4 21 3 13.6 3 4.6a2 2 0 013.6-2.1z"/></svg>
+            <div>
+              <h4>Call center, consultas generales</h4>
+              <p>
+                Telefono: (01) 626 4000<br>
+                Correo: clientes@maisonalbarini.pe<br>
+                WhatsApp: 920 417 300
+              </p>
+            </div>
+          </div>
+
+          <div class="care__block">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 2.5l3 .5 1.2 4-2.1 1.7a13 13 0 006.6 6.6l1.7-2.1 4 1.2.5 3A2 2 0 0119.4 21C10.4 21 3 13.6 3 4.6a2 2 0 013.6-2.1z"/></svg>
+            <div>
+              <h4>Contact center, venta de repuestos</h4>
+              <p>
+                Telefono: (01) 626 5600<br>
+                Correo: repuestos@maisonalbarini.pe<br>
+                Horario de atencion:<br>
+                Lunes a viernes de 08:00 a 17:00<br>
+                Sabados de 08:00 a 12:00
+              </p>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="foot-yellow">
+    <div class="container">
+      <div class="foot-yellow__grid">
+
+        <div class="utility">
+          <a class="utility__item" href="#">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 3h6a2 2 0 012 2v2h3a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V9a2 2 0 012-2h3V5a2 2 0 012-2zm0 4h6V5H9z"/></svg>
+            Bolsa de trabajo
+          </a>
+          <a class="utility__item" href="#">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 2h8l4 4v16H6z" opacity=".92"/><path d="M8.5 11h7v1.4h-7zm0 3h7v1.4h-7zm0 3h4.5v1.4H8.5z" fill="#fbbd00"/></svg>
+            Ver comprobantes electronicos
+          </a>
+          <a class="utility__item" href="#">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l8 3.2v6c0 5-3.4 9.6-8 10.8-4.6-1.2-8-5.8-8-10.8v-6z"/><path d="M10.6 15.4l-3-3 1.4-1.4 1.6 1.6 4.4-4.4 1.4 1.4z" fill="#fbbd00"/></svg>
+            Politica de privacidad
+          </a>
+          <a class="utility__item" href="#">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 4.5h7.2A2.8 2.8 0 0112 6v13a3.4 3.4 0 00-2.2-.9H3zm18 0h-7.2A2.8 2.8 0 0012 6v13a3.4 3.4 0 012.2-.9H21z"/></svg>
+            Libro de reclamaciones
+          </a>
+        </div>
+
+        <div class="social">
+          <a class="social__link" href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5H16.7V3.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V10H7.3v3h2.7v8z"/></svg>
+          </a>
+          <a class="social__link" href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="16.9" cy="7.1" r="1.2" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a class="social__link" href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.5 9h3v11h-3zM6 3.6a1.8 1.8 0 110 3.6 1.8 1.8 0 010-3.6zM10 9h2.9v1.5a3.2 3.2 0 012.9-1.6c3 0 3.7 1.9 3.7 4.5V20h-3v-5.1c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V20h-2.9z"/></svg>
+          </a>
+          <a class="social__link" href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12s0-3.2-.4-4.7a2.5 2.5 0 00-1.7-1.7C18.3 5.2 12 5.2 12 5.2s-6.3 0-7.9.4a2.5 2.5 0 00-1.7 1.7C2 8.8 2 12 2 12s0 3.2.4 4.7a2.5 2.5 0 001.7 1.7c1.6.4 7.9.4 7.9.4s6.3 0 7.9-.4a2.5 2.5 0 001.7-1.7C22 15.2 22 12 22 12zM10 15.2V8.8l5.3 3.2z"/></svg>
+          </a>
+          <a class="social__link" href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 2h-3v13.1a2.6 2.6 0 11-2.1-2.6V9.4a5.9 5.9 0 105.1 5.8V9.1a6.8 6.8 0 004 1.3V7.3a3.9 3.9 0 01-4-4z"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="foot-black">
+    <div class="container">
+      <nav class="foot-nav" aria-label="Navegacion del pie">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#productos">Equipos</a>
+        <a href="#repuestos">Repuestos</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#tecnologia">Tecnologia</a>
+        <a href="#novedades">Novedades</a>
+        <a href="#promociones">Promociones</a>
+        <a href="#portal">Portal Maison</a>
+        <a href="#sedes">Nuestras sedes</a>
+        <a class="is-accent" href="#cotizacion">Solicite una cotizacion</a>
+      </nav>
+      <div class="foot-black__row">
+        <a class="whistle" href="#">
+          Canal de denuncias
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1.6"/><path d="M12 7v6M12 16.2v.6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="legal">
+    <div class="container">
+      <p class="legal__line">Maison Albarini S.A. &middot; RUC: 20601234567</p>
+      <p class="legal__line">Copyright &copy; Maison Albarini 2026. Todos los derechos reservados.</p>
+      <div class="legal__notice">
+        <h4>Comunicado beneficiario final</h4>
+        <p>De acuerdo con el Decreto Legislativo N&deg; 1372 y su Decreto Supremo N&deg; 003-2019-EF, Maison Albarini S.A. ha cumplido con aplicar los procedimientos para la identificacion del beneficiario final. Como resultado de dichos procedimientos, la empresa ha concluido que no cuenta con beneficiario final por propiedad ni por control. Sobre la base de lo expuesto y en estricto cumplimiento del numeral 7.3 del articulo 7 del Decreto Supremo N&deg; 003-2019-EF, publicamos este comunicado en nuestro portal web.</p>
+        <p class="legal__date">Diciembre de 2025</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+<!-- acciones flotantes -->
+<div class="floaters">
+  <a class="floater floater--wa" href="https://wa.me/51920417300" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1112 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.6-1.2a.6.6 0 000-.6c0-.1-.6-1.4-.8-1.9s-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 2.9 2.9 0 00-.9 2.2 5 5 0 001.1 2.7 11.5 11.5 0 004.4 3.9c1.6.7 2.2.7 3 .6a2.6 2.6 0 001.7-1.2 2.1 2.1 0 00.1-1.2c0-.1-.2-.2-.5-.3z"/></svg>
+  </a>
+  <button class="floater floater--bot" id="botBtn" aria-label="Abrir asistente virtual">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a2 2 0 012 2v1h2.5A3.5 3.5 0 0120 8.5v7a3.5 3.5 0 01-3.5 3.5H13l-4 3v-3H7.5A3.5 3.5 0 014 15.5v-7A3.5 3.5 0 017.5 5H10V4a2 2 0 012-2zM9 10.5a1.3 1.3 0 100 2.6 1.3 1.3 0 000-2.6zm6 0a1.3 1.3 0 100 2.6 1.3 1.3 0 000-2.6z"/></svg>
+  </button>
+</div>
+
+<script src="./assets/js/main.js" defer></script>
+</body>
+</html>

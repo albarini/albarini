@@ -1,0 +1,555 @@
+/* ============================================================
+   MAISON ALBARINI  ·  Componentes: hero, mosaico, botones, flotantes
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   Botones
+   ------------------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 28px;
+  font-family: var(--font-cond);
+  font-size: var(--fs-lead);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .01em;
+  transition: background var(--dur) var(--ease),
+              color var(--dur) var(--ease),
+              border-color var(--dur) var(--ease);
+}
+
+.btn--ghost {
+  border: 1px solid var(--c-white);
+  color: var(--c-white);
+}
+.btn--ghost:hover {
+  background: var(--c-yellow);
+  border-color: var(--c-yellow);
+  color: var(--c-black);
+}
+
+.btn--outline {
+  padding: 11px 26px;
+  border: 1px solid var(--c-grey-mid);
+  font-size: var(--fs-sm);
+  color: var(--c-ink-soft);
+}
+.btn--outline:hover {
+  background: var(--c-black);
+  border-color: var(--c-black);
+  color: var(--c-white);
+}
+
+.btn--pill {
+  flex-shrink: 0;
+  padding: 11px 22px;
+  border-radius: 999px;
+  background: var(--c-night);
+  color: var(--c-white);
+  font-size: var(--fs-sm);
+  white-space: nowrap;
+}
+.btn--pill:hover { background: var(--c-yellow); color: var(--c-black); }
+.btn--pill svg { width: 15px; height: 15px; color: var(--c-yellow); }
+.btn--pill:hover svg { color: var(--c-black); }
+
+/* ------------------------------------------------------------
+   Hero / carrusel
+   ------------------------------------------------------------ */
+.hero {
+  position: relative;
+  height: var(--hero-h);
+  background: var(--c-black);
+  overflow: hidden;
+}
+
+.hero__track {
+  position: relative;
+  height: 100%;
+}
+
+.hero__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--dur-slow) var(--ease-io),
+              visibility var(--dur-slow);
+}
+
+.hero__slide.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  background: #0d0d0d center / cover no-repeat;
+  transform: scale(1.06);
+  transition: transform 7s linear;
+}
+.hero__slide.is-active .hero__media { transform: scale(1); }
+
+.hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(0, 0, 0, .92) 0%,
+    rgba(0, 0, 0, .78) 28%,
+    rgba(0, 0, 0, .35) 52%,
+    rgba(0, 0, 0, .12) 100%
+  );
+}
+
+.hero__inner {
+  position: relative;
+  z-index: var(--z-hero);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+}
+
+.hero__title {
+  color: var(--c-white);
+  max-width: 15ch;
+}
+
+.hero__rule {
+  width: 100%;
+  max-width: 452px;
+  height: 1px;
+  margin: 26px 0 22px;
+  background: repeating-linear-gradient(
+    to right,
+    var(--c-white) 0 9px,
+    transparent 9px 17px
+  );
+}
+
+.hero__sub {
+  max-width: 36ch;
+  margin-bottom: 34px;
+  color: var(--c-white);
+}
+
+.hero__cta { align-self: flex-start; }
+
+/* --- flechas --- */
+.hero__arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-top: -26px;
+  color: rgba(255, 255, 255, .62);
+  transition: color var(--dur-fast) var(--ease),
+              transform var(--dur-fast) var(--ease);
+}
+.hero__arrow:hover { color: var(--c-white); }
+.hero__arrow--prev { left: 8px; }
+.hero__arrow--next { right: 8px; }
+.hero__arrow--prev:hover { transform: translateX(-3px); }
+.hero__arrow--next:hover { transform: translateX(3px); }
+.hero__arrow svg { width: 26px; height: 26px; }
+
+/* --- puntos --- */
+.hero__dots {
+  position: absolute;
+  left: 50%;
+  bottom: 34px;
+  z-index: 3;
+  display: flex;
+  gap: 9px;
+  width: 100%;
+  max-width: var(--container);
+  padding: 0 16px;
+  transform: translateX(-50%);
+}
+
+.hero__dot {
+  width: 13px;
+  height: 13px;
+  background: transparent;
+  border: 1px solid var(--c-white);
+  transition: background var(--dur-fast) var(--ease);
+}
+.hero__dot:hover { background: rgba(255, 255, 255, .5); }
+.hero__dot.is-active { background: var(--c-white); }
+
+/* --- CTA de cotizacion, con esquina plegada --- */
+.quote {
+  position: absolute;
+  right: max(16px, calc((100% - var(--container)) / 2));
+  bottom: -36px;
+  z-index: var(--z-cta);
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 22px 52px 22px 40px;
+  background: var(--c-yellow);
+  color: var(--c-black);
+  font-family: var(--font-cond);
+  font-size: 25px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: background var(--dur) var(--ease);
+}
+.quote:hover { background: #ffd23d; }
+.quote svg { width: 34px; height: 34px; }
+
+.quote::before {
+  content: "";
+  position: absolute;
+  left: -22px;
+  bottom: 0;
+  border-style: solid;
+  border-width: 0 0 36px 22px;
+  border-color: transparent transparent var(--c-yellow-dark) transparent;
+}
+
+.hero-wrap { position: relative; }
+
+/* ------------------------------------------------------------
+   Mosaico de tarjetas
+   ------------------------------------------------------------ */
+.mosaic { padding: 88px 0 96px; }
+
+.card {
+  position: relative;
+  display: block;
+  height: 297px;
+  background: var(--c-night);
+  overflow: hidden;
+}
+
+.card__media {
+  position: absolute;
+  inset: 0;
+  background: #1a1a1a center / cover no-repeat;
+  transition: transform var(--dur-slow) var(--ease);
+}
+.card:hover .card__media { transform: scale(1.06); }
+
+.card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, .34) 0%,
+    rgba(0, 0, 0, .06) 42%,
+    rgba(0, 0, 0, .06) 58%,
+    rgba(0, 0, 0, .34) 100%
+  );
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease);
+}
+.card:hover .card__media::after { opacity: 1; }
+
+/* barra de titulo, arriba o abajo segun la tarjeta */
+.card__bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 15px 20px;
+  background: var(--c-veil);
+  color: var(--c-white);
+  transition: background var(--dur) var(--ease);
+}
+
+.card--top .card__bar { top: 0; }
+.card--bottom .card__bar { bottom: 0; }
+
+.card:hover .card__bar { background: var(--c-veil-deep); }
+
+.card__title { color: var(--c-white); }
+
+.card__body {
+  display: grid;
+  grid-template-rows: 0fr;
+  margin-top: 0;
+  font-family: var(--font-ui);
+  font-size: var(--fs-xs);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, .88);
+  transition: grid-template-rows var(--dur) var(--ease),
+              margin-top var(--dur) var(--ease);
+}
+.card__body > span { overflow: hidden; }
+
+.card:hover .card__body,
+.card:focus-visible .card__body {
+  grid-template-rows: 1fr;
+  margin-top: 9px;
+}
+
+.card__plus {
+  position: relative;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+}
+.card__plus::before,
+.card__plus::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: var(--c-white);
+  transition: transform var(--dur) var(--ease),
+              background var(--dur) var(--ease);
+}
+.card__plus::before {
+  width: 17px; height: 2px;
+  transform: translate(-50%, -50%);
+}
+.card__plus::after {
+  width: 2px; height: 17px;
+  transform: translate(-50%, -50%);
+}
+.card:hover .card__plus::before,
+.card:hover .card__plus::after { background: var(--c-yellow); }
+.card:hover .card__plus::after { transform: translate(-50%, -50%) rotate(90deg); }
+
+/* variante clara, para la tarjeta de la tienda de repuestos */
+.card--light { background: var(--c-grey); }
+.card--light .card__media::after { background: none; }
+.card--light .card__media.is-placeholder {
+  background-image: linear-gradient(115deg, #fafafa 0%, #ececec 55%, #dedede 100%);
+}
+
+.card__promo {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0 46px 52px;
+  font-family: var(--font-cond);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.16;
+  text-transform: uppercase;
+  color: var(--c-ink);
+}
+.card__promo mark {
+  align-self: flex-start;
+  padding: 2px 9px;
+  background: var(--c-black);
+  color: var(--c-yellow);
+}
+
+/* ------------------------------------------------------------
+   Acciones flotantes
+   ------------------------------------------------------------ */
+.floaters {
+  position: fixed;
+  right: 22px;
+  bottom: 26px;
+  z-index: var(--z-float);
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.floater {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, .26);
+  transition: transform var(--dur) var(--ease),
+              box-shadow var(--dur) var(--ease);
+}
+.floater:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 9px 26px rgba(0, 0, 0, .34);
+}
+.floater svg { width: 31px; height: 31px; }
+
+.floater--wa { background: #25d366; color: var(--c-white); }
+.floater--bot { background: var(--c-yellow); color: var(--c-black); }
+
+/* ------------------------------------------------------------
+   Cajon movil
+   ------------------------------------------------------------ */
+.drawer {
+  position: fixed;
+  inset: 0 0 0 auto;
+  z-index: var(--z-drawer);
+  width: min(88vw, 400px);
+  padding: 96px 30px 40px;
+  background: var(--c-black);
+  overflow-y: auto;
+  visibility: hidden;
+  transform: translateX(101%);
+  transition: transform var(--dur-slow) var(--ease),
+              visibility var(--dur-slow);
+}
+.drawer.is-open { visibility: visible; transform: translateX(0); }
+
+.drawer__close {
+  position: absolute;
+  top: 26px;
+  right: 26px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: var(--c-white);
+  transition: color var(--dur-fast) var(--ease),
+              transform var(--dur-fast) var(--ease);
+}
+.drawer__close:hover { color: var(--c-yellow); transform: rotate(90deg); }
+.drawer__close svg { width: 24px; height: 24px; }
+
+.drawer__list { display: flex; flex-direction: column; }
+
+.drawer__link {
+  display: block;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .13);
+  font-family: var(--font-cond);
+  font-size: 21px;
+  text-transform: uppercase;
+  color: var(--c-white);
+}
+.drawer__link:hover { color: var(--c-yellow); }
+
+.drawer__foot {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+/* sobre fondo negro el gris del pill no contrasta, va en amarillo */
+.drawer .btn--pill { background: var(--c-yellow); color: var(--c-black); }
+.drawer .btn--pill svg { color: var(--c-black); }
+.drawer .btn--pill:hover { background: var(--c-white); }
+
+.drawer__meta {
+  font-family: var(--font-ui);
+  font-size: var(--fs-xs);
+  color: rgba(255, 255, 255, .62);
+}
+
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-drawer) - 1);
+  background: rgba(0, 0, 0, .58);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--dur) var(--ease), visibility var(--dur);
+}
+.scrim.is-open { opacity: 1; visibility: visible; }
+
+/* ------------------------------------------------------------
+   Revelado al hacer scroll
+   ------------------------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity var(--dur-slow) var(--ease),
+              transform var(--dur-slow) var(--ease);
+}
+.reveal.is-in { opacity: 1; transform: none; }
+
+/* ============================================================
+   Adaptacion a pantallas menores
+   ============================================================ */
+
+@media (max-width: 1150px) {
+  .nav__link { padding: 6px 11px; font-size: 15px; }
+  .search { width: 210px; }
+}
+
+@media (max-width: 991px) {
+  :root { --header-h: 118px; --topbar-h: 44px; --hero-h: 430px; }
+
+  .topbar__links,
+  .topbar__select { display: none; }
+  .search { width: 100%; max-width: 340px; }
+
+  .masthead { align-items: center; padding-bottom: 12px; }
+  .nav { display: none; }
+  .burger { display: flex; }
+
+  .foot-white__grid { grid-template-columns: repeat(2, 1fr); }
+  .care { grid-column: span 2; }
+
+  .foot-yellow__grid { flex-direction: column; align-items: flex-start; }
+  .utility { gap: 26px; }
+}
+
+@media (max-width: 767px) {
+  :root { --hero-h: 400px; --gutter: 6px; }
+
+  /* el boton de asesoria empujaba el burger fuera del viewport,
+     asi que en movil vive dentro del cajon */
+  .masthead > .btn--pill { display: none; }
+
+  .col-3, .col-6 { grid-column: span 6; }
+
+  .card { height: 220px; }
+  .card__body { display: none; }
+  .mosaic { padding: 54px 0 60px; }
+
+  .t-hero { font-size: 34px; }
+  .t-hero-sub { font-size: 20px; }
+  .t-card { font-size: 18px; }
+
+  .hero__inner { max-width: none; }
+  .hero__title { max-width: none; }
+  .hero__sub { max-width: none; }
+  .hero__arrow { display: none; }
+  .hero__dots { bottom: 22px; }
+
+  .quote {
+    position: static;
+    width: 100%;
+    justify-content: center;
+    padding: 19px 24px;
+    font-size: 20px;
+  }
+  .quote::before { display: none; }
+
+  .card__promo { padding: 0 24px 46px; font-size: 22px; }
+
+  .foot-white__grid { grid-template-columns: 1fr; }
+  .care { grid-column: span 1; }
+
+  .foot-nav { gap: 9px 18px; }
+  .whistle { margin-left: 0; }
+  .foot-black__row { justify-content: flex-start; }
+
+  .floater { width: 50px; height: 50px; }
+  .floater svg { width: 27px; height: 27px; }
+}
+
+@media (max-width: 480px) {
+  .col-3, .col-6 { grid-column: span 12; }
+  .card { height: 200px; }
+  .brand__name { font-size: 21px; padding: 0 10px; }
+  .brand__badge { font-size: 19px; padding: 0 8px; }
+  .brand__mark { height: 36px; }
+}
